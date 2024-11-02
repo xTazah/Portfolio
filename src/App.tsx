@@ -10,7 +10,7 @@ import { AboutMe } from "./components/AboutMe";
 const App = () => {
   return (
     <BrowserRouter>
-      <div className="bg-gray-100 dark:bg-gray-900">
+      <div className="bg-gray-100 dark:bg-[#14122a]">
         <NavBar/>
         <AboutMe/>
         <Button radius="full" className="bg-gradient-to-tr from-pink-500 to-purple-500 text-white drop-shadow-lg" startContent={<ArrowDownTrayIcon className="w-5 h-6"/>}>

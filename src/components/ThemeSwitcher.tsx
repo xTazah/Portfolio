@@ -17,6 +17,7 @@ export const ThemeSwitcher = () => {
 
   return (
     <Tooltip showArrow={true}
+    placement="bottom-end"
       content={
           <div className="text-small">Switch to {!darkMode ? "Dark" : "Light" } Mode</div>
       }

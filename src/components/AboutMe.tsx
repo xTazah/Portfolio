@@ -21,7 +21,7 @@ export const AboutMe = () => {
         
         {/* Description */}
         <p className="text-lg sm:text-xl font-medium mt-4 text-gray-600 dark:text-gray-400">
-            I'm a 21-year-old Computer Science bachelor-graduate with a strong foundation in data science, machine learning, and AI.
+            I'm a 21-year-old computer science bachelor's graduate with a strong foundation in data science, machine learning, and AI.
         </p>
       </div>
     </div>

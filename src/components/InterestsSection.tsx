@@ -1,3 +1,4 @@
+import { AspectRatio } from "./AspectRatio";
 import PianoCanvas from "./PianoCanvas";
 
 export const InterestsSection = () => {
@@ -16,14 +17,22 @@ export const InterestsSection = () => {
         {/* PC Model with floaitng icons like BennyProduction Intro */}
       </div>
 
-      <div className="flex flex-row">
-        <PianoCanvas/>
-        <div className="text-center">
-          <p className="text-lg font-medium text-gray-700 dark:text-gray-300">
-            I love playing piano
+      <div className="flex flex-col sm:flex-row items-center justify-center space-x-6">
+        <div className="w-3/5 
+        // sm:w-3/5"
+        >
+          <AspectRatio ratio={1/1}>
+            <PianoCanvas />
+          </AspectRatio>
+        </div>
+        <div className="flex flex-col justify-center mt-4 sm:mt-4 w-4/5 sm:w-2/5">
+          <p className="text-lg font-medium text-gray-700 dark:text-gray-300 text-center sm:text-left">
+            I love playing piano. It's a wonderful way to express creativity and relax after a long day. 
           </p>
         </div>
       </div>
+
+
 
       <div className="flex flex-col items-center">
         <div className="text-center max-w-md">

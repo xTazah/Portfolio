@@ -1,0 +1,11 @@
+- add circle at start of timeline
+- add a section wrapper so every header is the same and indexing with # works automatically
+  - put that into separate file and then build the top nav from it directly (e.g. name : "Interests", id :"interets")
+- fix darkmode for timeline
+- fix coloring of navbar for selected section
+- fix waving animation
+- finish interests section
+- add projects section
+- add cv to download button
+- add footer for email contact and github
+- add logo to navbar

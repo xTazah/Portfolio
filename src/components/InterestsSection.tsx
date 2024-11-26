@@ -1,25 +1,26 @@
-import PianoCanvas from "./PianoCanvas";
+import { motion } from "framer-motion";
 import { Canvas3D } from "./Canvas3D";
 import CanvasTextSection from "./CanvasTextSection";
+import { textEntry } from "../utils/animations";
 
 export const InterestsSection = () => {
   return (
-    <div>
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute object-cover w-full h-full opacity-20 hidden dark:block"
-      >
-        <source src="/background.mp4" type="video/mp4" />
-      </video>
-      <section className="relative w-full backdrop-blur-sm mt-8 px-8 mx-auto flex flex-col items-center space-y-12">
-        <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-          A Peek into My World 🌍
-        </h2>
+    <div className="mt-20">
+      <section className="relative w-full backdrop-blur-sm px-8 mx-auto flex flex-col items-center space-y-12">
+        <motion.div variants={textEntry(0)}>
+          <p
+            className={`sm:text-[18px] text-[14px] text-secondary uppercase tracking-wider text-center`}
+          >
+            A Peek into My World
+          </p>
+          <h2
+            className={`text-gray-900 dark:text-white font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px] text-center`}
+          >
+            Interests.
+          </h2>
+        </motion.div>
 
-          {/* PC Model with floaitng icons like BennyProduction Intro */}
+        {/* PC Model with floaitng icons like BennyProduction Intro */}
         <CanvasTextSection
           text="Technologies Placeholder. Placeholde Model too"
           CanvasComponent={Canvas3D}
@@ -48,7 +49,7 @@ export const InterestsSection = () => {
           order="left"
         />
 
-<CanvasTextSection
+        <CanvasTextSection
           text="Fitness is essential for me to stay balanced and energized."
           CanvasComponent={Canvas3D}
           canvasProps={{
@@ -61,7 +62,6 @@ export const InterestsSection = () => {
           }}
           order="right"
         />
-
       </section>
     </div>
   );

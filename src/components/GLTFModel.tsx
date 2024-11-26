@@ -41,7 +41,7 @@ export const Model: React.FC<ModelProps> = ({
           scale={scale}
           position={position}
           rotation={rotation}
-          variants={bobbingAnimation}
+          variants={bobbingAnimation()}
           initial="hidden"
           animate="show"
         />

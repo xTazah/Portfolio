@@ -1,4 +1,3 @@
-import React from "react";
 import { Button } from "@nextui-org/react";
 import { ArrowDownTrayIcon } from "@heroicons/react/20/solid";
 import {

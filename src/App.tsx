@@ -3,6 +3,7 @@ import { BrowserRouter } from "react-router-dom";
 import { NavBar } from "./components/NavBar";
 import { AboutMe } from "./components/AboutMe";
 import { Work } from "./components/Work";
+import { MapOverlay } from "./components/Map";
 import { InterestsSection } from "./components/InterestsSection";
 
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
             filter: "blur(5px)",
           }}
         ></div>
+        {/* <MapOverlay /> */}
         <NavBar />
         <AboutMe />
         <Work />

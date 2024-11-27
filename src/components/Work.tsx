@@ -74,7 +74,7 @@ export const Work = () => {
         </h2>
       </motion.div>
 
-      <div className="mt-20 flex flex-col items-center">
+      <div className="mt-10 sm:mt-20 flex flex-col items-center">
         <VerticalTimeline>
           {workExperience.map((experience, index) => (
             <WorkCard key={`experience-${index}`} experience={experience} />

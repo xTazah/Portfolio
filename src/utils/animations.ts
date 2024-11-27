@@ -33,20 +33,24 @@ export const textEntry = (delay) => {
 };
 
 export const wavingAnimation = () => {
+  const wavingKeyframes = [0, -5, 5, -5, 0]; // resuable keyframes
+  const wavingTransition = {
+    duration: 1.25,
+    ease: "easeInOut",
+  };
+
   return {
     hidden: { rotate: 0 },
     show: {
-      rotate: [0, 20, -10, 10, -5, 0],
+      rotate: wavingKeyframes,
       transition: {
-        duration: 1.5,
-        ease: "easeInOut",
-        repeat: Infinity,
-        repeatDelay: 1,
+        ...wavingTransition,
+        delay: 2, // delay on startup
       },
     },
     hover: {
-      rotate: 15,
-      scale: 1.2,
+      rotate: wavingKeyframes,
+      transition: wavingTransition,
     },
   };
 };

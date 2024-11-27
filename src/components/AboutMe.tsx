@@ -20,6 +20,7 @@ export const AboutMe = () => {
                   initial="hidden"
                   animate="show"
                   whileHover="hover"
+                  className="inline-block origin-bottom-right"
                 >
                   👋
                 </motion.span>

@@ -80,13 +80,15 @@ export const Work = () => {
             <WorkCard key={`experience-${index}`} experience={experience} />
           ))}
         </VerticalTimeline>
-        <Button
-          radius="full"
-          className="bg-gradient-to-tr w-fit mt-10 from-pink-500 to-purple-500 text-white drop-shadow-lg"
-          startContent={<ArrowDownTrayIcon className="w-5 h-6" />}
-        >
-          Download CV
-        </Button>
+        <a href="/dummy.pdf" download="Dummy.pdf">
+          <Button
+            radius="full"
+            className="bg-gradient-to-tr w-fit mt-10 from-pink-500 to-purple-500 text-white drop-shadow-lg"
+            startContent={<ArrowDownTrayIcon className="w-5 h-6" />}
+          >
+            Download CV
+          </Button>
+        </a>
       </div>
     </>
   );

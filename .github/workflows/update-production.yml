@@ -8,6 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Fetch all branches and commit history
       - name: Pull Main Branch
         run: git checkout main && git pull origin main
       - name: Update Production Branch

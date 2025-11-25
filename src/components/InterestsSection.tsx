@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Canvas3D } from "./Canvas3D";
 import CanvasTextSection from "./CanvasTextSection";
+import { ComputerCanvas } from "./ComputerCanvas";
 import { textEntry } from "../utils/animations";
 
 export const InterestsSection = () => {
@@ -20,20 +21,18 @@ export const InterestsSection = () => {
           </h2>
         </motion.div>
 
-        {/* PC Model with floaitng icons like BennyProduction Intro */}
-        <CanvasTextSection
-          text="Technologies Placeholder. Placeholde Model too"
-          CanvasComponent={Canvas3D}
-          canvasProps={{
-            modelPath: "/3d_models/monitor.glb",
-            cameraPosition: [-40, 0, 0],
-            enableZoom: false,
-            scale: 0.005,
-            position: [1, 0, 0],
-            rotation: [0, -0.75, 0],
-          }}
-          order="right"
-        />
+        <div className="relative w-full h-[800px] flex items-center">
+            <div className="absolute inset-0 w-full h-full">
+                 <ComputerCanvas />
+            </div>
+            <div className="relative z-10 w-full max-w-7xl mx-auto px-8 pointer-events-none">
+                <div className="w-full sm:w-1/2 pointer-events-auto">
+                    <p className="text-lg font-medium text-gray-700 dark:text-gray-300 text-center sm:text-left bg-white/50 dark:bg-black/50 backdrop-blur-sm p-6 rounded-xl">
+                    I constantly explore new tools and technologies to enhance my development workflow.
+                    </p>
+                </div>
+            </div>
+        </div>
 
         <CanvasTextSection
           text="I love playing piano. It's a wonderful way to express creativity and relax after a long day."

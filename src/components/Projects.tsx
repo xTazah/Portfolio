@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
 import { Tilt } from "react-tilt";
+import { ExternalLink } from "lucide-react";
 import { projects } from "../constants/constants";
 import { github } from "../assets/assets";
 import { textEntry } from "../utils/animations";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 const ProjectCard = ({
   index,
@@ -14,64 +17,73 @@ const ProjectCard = ({
   live_link,
 }) => {
   return (
-    <motion.div variants={textEntry(index * 0.5)}>
+    <motion.div variants={textEntry(index * 0.5)} className="w-full sm:w-[380px]">
       <Tilt
         options={{
-          max: 45,
-          scale: 1,
+          max: 25,
+          scale: 1.02,
           speed: 450,
         }}
-        className="bg-[#1d1836] p-5 rounded-2xl sm:w-[360px] w-full h-full flex flex-col justify-between"
+        className="h-full"
       >
-        <div className="relative w-full h-[230px]">
-          <div className="w-full h-full object-cover rounded-2xl bg-gray-800 flex items-center justify-center text-gray-500">
-             {image ? (
-                <img
-                src={image}
-                alt={name}
-                className="w-full h-full object-cover rounded-2xl"
-                />
-             ) : (
-                <span>No Image</span>
-             )}
-          </div>
-
-          <div className="absolute inset-0 flex justify-end m-3 card-img_hover gap-2">
-            <div
-              onClick={() => window.open(source_code_link, "_blank")}
-              className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer bg-black/50 hover:bg-black/80 transition-colors"
-              title="View Source Code"
-            >
-              <img
-                src={github}
-                alt="github"
-                className="w-1/2 h-1/2 object-contain invert"
-              />
-            </div>
-            {live_link && live_link !== "#" && (
-                <div
-                onClick={() => window.open(live_link, "_blank")}
-                className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer bg-black/50 hover:bg-black/80 transition-colors"
-                title="View Live Site"
+        <Card className="h-full flex flex-col bg-gradient-to-br from-slate-900 via-purple-900/20 to-slate-900 border-purple-500/20 backdrop-blur-sm overflow-hidden group hover:border-purple-500/40 transition-all duration-300">
+          <CardHeader className="p-0 relative">
+            <div className="relative w-full h-[240px] overflow-hidden">
+              <div className="w-full h-full bg-gradient-to-br from-purple-900/30 to-slate-900 flex items-center justify-center">
+                {image ? (
+                  <img
+                    src={image}
+                    alt={name}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                ) : (
+                  <div className="text-muted-foreground/50 text-sm">Project Preview</div>
+                )}
+              </div>
+              
+              {/* Action buttons overlay */}
+              <div className="absolute top-3 right-3 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <button
+                  onClick={() => window.open(source_code_link, "_blank")}
+                  className="w-10 h-10 rounded-full bg-black/70 hover:bg-black/90 backdrop-blur-sm flex items-center justify-center transition-all hover:scale-110"
+                  title="View Source Code"
                 >
-                <span className="text-white text-xs font-bold">LIVE</span>
-                </div>
-            )}
-          </div>
-        </div>
+                  <img src={github} alt="github" className="w-5 h-5 invert" />
+                </button>
+                {live_link && live_link !== "#" && (
+                  <button
+                    onClick={() => window.open(live_link, "_blank")}
+                    className="w-10 h-10 rounded-full bg-purple-600/80 hover:bg-purple-600 backdrop-blur-sm flex items-center justify-center transition-all hover:scale-110"
+                    title="View Live Demo"
+                  >
+                    <ExternalLink className="w-5 h-5 text-white" />
+                  </button>
+                )}
+              </div>
+            </div>
+          </CardHeader>
 
-        <div className="mt-5">
-          <h3 className="text-white font-bold text-[24px]">{name}</h3>
-          <p className="mt-2 text-secondary text-[14px]">{description}</p>
-        </div>
-
-        <div className="mt-4 flex flex-wrap gap-2">
-          {tags.map((tag) => (
-            <p key={tag.name} className={`text-[14px] ${tag.color}`}>
-              #{tag.name}
+          <CardContent className="flex-1 pt-6">
+            <CardTitle className="text-2xl font-bold text-white mb-3 group-hover:text-purple-300 transition-colors">
+              {name}
+            </CardTitle>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              {description}
             </p>
-          ))}
-        </div>
+          </CardContent>
+
+          <CardFooter className="pt-0 pb-6 flex-wrap gap-2">
+            {tags.map((tag) => (
+              <Badge 
+                key={tag.name} 
+                variant="secondary" 
+                className="bg-purple-500/10 text-purple-300 border-purple-500/30 hover:bg-purple-500/20"
+              >
+                #{tag.name}
+              </Badge>
+            ))}
+          </CardFooter>
+        </Card>
       </Tilt>
     </motion.div>
   );
@@ -79,37 +91,40 @@ const ProjectCard = ({
 
 export const Projects = () => {
   return (
-    <>
+    <section className="py-20 px-4 sm:px-6 lg:px-8">
       <span className="hash-span" id="Projects">
         &nbsp;
       </span>
-      <motion.div variants={textEntry(0)}>
-        <p className={`sm:text-[18px] text-[14px] text-secondary uppercase tracking-wider text-center`}>
-          My work
-        </p>
-        <h2 className={`text-gray-900 dark:text-white font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px] text-center`}>
-          Projects.
-        </h2>
-      </motion.div>
+      
+      <div className="max-w-7xl mx-auto">
+        <motion.div variants={textEntry(0)}>
+          <p className="sm:text-lg text-sm text-purple-400 uppercase tracking-wider text-center font-semibold">
+            My work
+          </p>
+          <h2 className="text-gray-900 dark:text-white font-black md:text-6xl sm:text-5xl text-4xl text-center mt-2">
+            Projects.
+          </h2>
+        </motion.div>
 
-      <div className="w-full flex">
-        <motion.p
-          variants={textEntry(0.1)}
-          className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px] text-center mx-auto"
-        >
-          Following projects showcases my skills and experience through
-          real-world examples of my work. Each project is briefly described with
-          links to code repositories and live demos in it. It reflects my
-          ability to solve complex problems, work with different technologies,
-          and manage projects effectively.
-        </motion.p>
-      </div>
+        <div className="w-full flex">
+          <motion.p
+            variants={textEntry(0.1)}
+            className="mt-6 text-muted-foreground text-base sm:text-lg max-w-3xl leading-relaxed text-center mx-auto"
+          >
+            The following projects showcase my skills and experience through
+            real-world examples of my work. Each project is briefly described with
+            links to code repositories and live demos, reflecting my
+            ability to solve complex problems, work with different technologies,
+            and manage projects effectively.
+          </motion.p>
+        </div>
 
-      <div className="mt-20 flex flex-wrap gap-7 justify-center">
-        {projects.map((project, index) => (
-          <ProjectCard key={`project-${index}`} index={index} {...project} />
-        ))}
+        <div className="mt-16 flex flex-wrap gap-8 justify-center">
+          {projects.map((project, index) => (
+            <ProjectCard key={`project-${index}`} index={index} {...project} />
+          ))}
+        </div>
       </div>
-    </>
+    </section>
   );
 };

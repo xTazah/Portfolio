@@ -1,4 +1,3 @@
-import { Button } from "@nextui-org/react";
 import { ArrowDownTrayIcon } from "@heroicons/react/20/solid";
 import {
   VerticalTimeline,
@@ -9,6 +8,7 @@ import { motion } from "framer-motion";
 import "react-vertical-timeline-component/style.min.css";
 import { workExperience } from "../constants/constants";
 import { textEntry } from "../utils/animations";
+import { Button } from "@/components/ui/button";
 
 const WorkCard = ({ experience }) => {
   return (
@@ -16,6 +16,8 @@ const WorkCard = ({ experience }) => {
       contentStyle={{
         background: "#1d1836",
         color: "#fff",
+        borderRadius: "1rem",
+        boxShadow: "0 10px 30px -15px rgba(147, 51, 234, 0.3)",
       }}
       contentArrowStyle={{ borderRight: "7px solid #1d1836" }}
       date={experience.date}
@@ -33,7 +35,7 @@ const WorkCard = ({ experience }) => {
       <div>
         <h3 className="text-white text-[24px] font-bold">{experience.title}</h3>
         <p
-          className="text-secondary text-[16px] font-semibold"
+          className="text-purple-300 text-[16px] font-semibold"
           style={{ margin: 0 }}
         >
           {experience.company_name}
@@ -56,39 +58,38 @@ const WorkCard = ({ experience }) => {
 
 export const Work = () => {
   return (
-    <>
+    <section className="py-20 px-4 sm:px-6 lg:px-8">
       <span className="hash-span" id="Work">
         &nbsp;
       </span>
-      <motion.div variants={textEntry(0)}>
-        <p
-          className={`sm:text-[18px] text-[14px] text-secondary uppercase tracking-wider text-center`}
-        >
-          What I have done so far
-        </p>
-        <h2
-          className={`text-gray-900 dark:text-white font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px] text-center`}
-        >
-          Work Experience.
-        </h2>
-      </motion.div>
+      
+      <div className="max-w-7xl mx-auto">
+        <motion.div variants={textEntry(0)}>
+          <p className="sm:text-lg text-sm text-purple-400 uppercase tracking-wider text-center font-semibold">
+            What I have done so far
+          </p>
+          <h2 className="text-gray-900 dark:text-white font-black md:text-6xl sm:text-5xl text-4xl text-center mt-2">
+            Work Experience.
+          </h2>
+        </motion.div>
 
-      <div className="mt-10 sm:mt-20 flex flex-col items-center">
-        <VerticalTimeline>
-          {workExperience.map((experience, index) => (
-            <WorkCard key={`experience-${index}`} experience={experience} />
-          ))}
-        </VerticalTimeline>
-        <a href="/dummy.pdf" download="Dummy.pdf">
-          <Button
-            radius="full"
-            className="bg-gradient-to-tr w-fit mt-10 from-pink-500 to-purple-500 text-white drop-shadow-lg"
-            startContent={<ArrowDownTrayIcon className="w-5 h-6" />}
-          >
-            Download CV
-          </Button>
-        </a>
+        <div className="mt-10 sm:mt-20 flex flex-col items-center">
+          <VerticalTimeline>
+            {workExperience.map((experience, index) => (
+              <WorkCard key={`experience-${index}`} experience={experience} />
+            ))}
+          </VerticalTimeline>
+          <a href="/dummy.pdf" download="Dummy.pdf">
+            <Button
+              size="lg"
+              className="mt-10 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold shadow-lg hover:shadow-xl transition-all"
+            >
+              <ArrowDownTrayIcon className="w-5 h-5 mr-2" />
+              Download CV
+            </Button>
+          </a>
+        </div>
       </div>
-    </>
+    </section>
   );
 };

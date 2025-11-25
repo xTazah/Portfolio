@@ -1,46 +1,54 @@
 import { MapPinIcon } from "@heroicons/react/24/outline";
 import { motion } from "framer-motion";
 import { wavingAnimation } from "../utils/animations";
+import { Card, CardContent } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
 
 export const AboutMe = () => {
   return (
-    <>
+    <section className="py-20 px-4 sm:px-6 lg:px-8">
       <span className="hash-span" id="AboutMe">
         &nbsp;
       </span>
-      <section className="relative w-full mx-auto">
-        <div className="inset-0 mt-12 max-w-7xl mx-auto px-8 flex flex-row items-start gap-6">
-          <div>
-            <h1 className="text-4xl sm:text-6xl font-black text-gray-900 dark:text-white leading-tight">
-              Hi, I'm{" "}
-              <span className="text-secondary">
-                Finn{" "}
-                <motion.span
-                  variants={wavingAnimation()} //todo: fix this --> why tf is not working???
-                  initial="hidden"
-                  animate="show"
-                  whileHover="hover"
-                  className="inline-block origin-bottom-right"
-                >
-                  👋
-                </motion.span>
-              </span>
-            </h1>
+      
+      <div className="max-w-7xl mx-auto">
+        <Card className="bg-gradient-to-br from-slate-900 via-purple-900/10 to-slate-900 border-purple-500/20 backdrop-blur-sm">
+          <CardContent className="p-8 sm:p-12">
+            <div className="flex flex-col gap-6">
+              <div>
+                <h1 className="text-4xl sm:text-6xl font-black text-white leading-tight">
+                  Hi, I'm{" "}
+                  <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                    Finn{" "}
+                  </span>
+                  <motion.span
+                      variants={wavingAnimation()}
+                      initial="hidden"
+                      animate="show"
+                      whileHover="hover"
+                      className="inline-block origin-bottom-right">
+                      👋
+                  </motion.span>
+                </h1>
+              </div>
 
-            {/* Location */}
-            <div className="flex items-center gap-2 mt-2 text-gray-700 dark:text-gray-300 text-lg">
-              <MapPinIcon className="h-6 w-6" />
-              <span>Münster, Germany</span>
+              <Separator className="bg-purple-500/20" />
+
+              {/* Location */}
+              <div className="flex items-center gap-3 text-muted-foreground">
+                <MapPinIcon className="h-6 w-6 text-purple-400" />
+                <span className="text-lg">Münster, Germany</span>
+              </div>
+
+              {/* Description */}
+              <p className="text-lg sm:text-xl font-medium text-muted-foreground leading-relaxed max-w-3xl">
+                I'm a 22-year-old computer science bachelor's graduate with a
+                foundation in data science, machine learning, and AI. Currently pursuing a master's degree at the University of Münster.
+              </p>
             </div>
-
-            {/* Description */}
-            <p className="text-lg sm:text-xl font-medium mt-4 text-gray-600 dark:text-gray-400">
-              I'm a 22-year-old computer science bachelor's graduate with a
-              foundation in data science, machine learning, and AI. Currently pursuing a master's degree at the University of Münster.
-            </p>
-          </div>
-        </div>
-      </section>
-    </>
+          </CardContent>
+        </Card>
+      </div>
+    </section>
   );
 };

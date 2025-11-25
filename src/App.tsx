@@ -9,23 +9,28 @@ import { InterestsSection } from "./components/InterestsSection";
 const App = () => {
   return (
     <BrowserRouter>
-      <div className="relative inset-0 bg-gray-100 dark:bg-[#14122a]">
+      <div className="relative min-h-screen bg-background">
+        {/* Background Pattern */}
         <div
-          className="absolute inset-0 pointer-events-none"
+          className="absolute inset-0 pointer-events-none opacity-10"
           style={{
             backgroundImage: `url('/background.png')`,
             backgroundRepeat: "repeat-y",
             backgroundSize: "contain",
-            opacity: 0.2,
-            filter: "blur(5px)",
+            filter: "blur(3px)",
           }}
-        ></div>
-        {/* <MapOverlay /> */}
-        <NavBar />
-        <AboutMe />
-        <Work />
-        <Projects />
-        <InterestsSection />
+        />
+        
+        {/* Content */}
+        <div className="relative z-10">
+          <NavBar />
+          <main className="pt-16">
+            <AboutMe />
+            <Work />
+            <Projects />
+            <InterestsSection />
+          </main>
+        </div>
       </div>
     </BrowserRouter>
   );

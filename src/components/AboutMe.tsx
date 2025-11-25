@@ -30,13 +30,13 @@ export const AboutMe = () => {
             {/* Location */}
             <div className="flex items-center gap-2 mt-2 text-gray-700 dark:text-gray-300 text-lg">
               <MapPinIcon className="h-6 w-6" />
-              <span>Gütersloh, Germany</span>
+              <span>Münster, Germany</span>
             </div>
 
             {/* Description */}
             <p className="text-lg sm:text-xl font-medium mt-4 text-gray-600 dark:text-gray-400">
-              I'm a 21-year-old computer science bachelor's graduate with a
-              strong foundation in data science, machine learning, and AI.
+              I'm a 22-year-old computer science bachelor's graduate with a
+              foundation in data science, machine learning, and AI. Currently pursuing a master's degree at the University of Münster.
             </p>
           </div>
         </div>

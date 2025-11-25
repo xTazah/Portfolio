@@ -3,6 +3,7 @@ import { BrowserRouter } from "react-router-dom";
 import { NavBar } from "./components/NavBar";
 import { AboutMe } from "./components/AboutMe";
 import { Work } from "./components/Work";
+import { Projects } from "./components/Projects";
 import { InterestsSection } from "./components/InterestsSection";
 
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
         <NavBar />
         <AboutMe />
         <Work />
+        <Projects />
         <InterestsSection />
       </div>
     </BrowserRouter>

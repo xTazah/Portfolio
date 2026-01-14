@@ -1,15 +1,27 @@
-import { beckhoff, hsbi } from "../assets/assets";
+import { beckhoff, hsbi, uniMuenster } from "../assets/assets";
 
 const workExperience = [
   {
-    title: "Working Student & Master's Student",
-    company_name: "Beckhoff Automation & University of Münster",
+    title: "Master of Science - Information Systems",
+    company_name: "University of Münster",
+    icon: uniMuenster,
+    iconBg: "white",
+    date: "October 2025 - Present",
+    points: [
+      "Master's degree in Information Systems with a major in Data Science",
+      "Courses taught in English",
+      "Focus on advanced data science, machine learning, and information systems research",
+    ],
+  },
+  {
+    title: "Working Student - Software Engineering",
+    company_name: "Beckhoff Automation",
     icon: beckhoff,
     iconBg: "white",
     date: "October 2025 - Present",
     points: [
-      "Master's degree in Information Systems with a major in Data Science at University of Münster (in English)",
-      "Working Student at Beckhoff Automation, contributing to ongoing software development projects",
+      "Contributing to ongoing software development projects alongside Master's studies",
+      "Continuing work on TwinCAT ecosystem and automation solutions",
     ],
   },
   {

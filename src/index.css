@@ -58,6 +58,12 @@
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
+  .maplibregl-popup-content {
+    @apply bg-transparent! shadow-none! p-0! rounded-none!;
+  }
+  .maplibregl-popup-tip {
+    @apply hidden!;
+  }
 }
 
 @layer base {
@@ -75,3 +81,33 @@
       scroll-behavior: smooth;
     }
   }
+/* Pulsing marker animation for the map */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.75);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-ring-delayed {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+.pulsing-marker-ring {
+  animation: pulse-ring 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.pulsing-marker-ring-delayed {
+  animation: pulse-ring-delayed 1.8s cubic-bezier(0, 0, 0.15, 1) infinite;
+}

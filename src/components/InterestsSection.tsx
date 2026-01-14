@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { Canvas3D } from "./Canvas3D";
-import CanvasTextSection from "./CanvasTextSection";
 import { ComputerCanvas } from "./ComputerCanvas";
 import { textEntry } from "../utils/animations";
 
@@ -27,40 +26,54 @@ export const InterestsSection = () => {
             </div>
             <div className="relative z-10 w-full max-w-7xl mx-auto px-8 pointer-events-none">
                 <div className="w-full sm:w-1/2 pointer-events-auto">
-                    <p className="text-lg font-medium text-gray-700 dark:text-gray-300 text-center sm:text-left bg-white/50 dark:bg-black/50 backdrop-blur-sm p-6 rounded-xl">
+                    <p className="text-lg font-medium text-gray-700 dark:text-gray-300 text-center sm:text-left bg-white/70 dark:bg-gray-900/80 backdrop-blur-md p-6 rounded-xl shadow-lg">
                     I constantly explore new tools and technologies to enhance my development workflow.
                     </p>
                 </div>
             </div>
         </div>
 
-        <CanvasTextSection
-          text="I love playing piano. It's a wonderful way to express creativity and relax after a long day."
-          CanvasComponent={Canvas3D}
-          canvasProps={{
-            modelPath: "/3d_models/Piano.glb",
-            cameraPosition: [-40, 0, 0],
-            enableZoom: false,
-            scale: 0.11,
-            position: [0, 0, 0],
-            rotation: [0, -1.5, 0],
-          }}
-          order="left"
-        />
+        {/* Piano Section */}
+        <div className="relative w-full h-[500px] flex items-center">
+            <div className="absolute inset-0 w-full h-full">
+                <Canvas3D
+                  modelPath="/3d_models/Piano.glb"
+                  cameraPosition={[-40, 0, 0]}
+                  enableZoom={false}
+                  scale={0.11}
+                  position={[0, 0, -8]}
+                  rotation={[0, -1.2, 0]}
+                />
+            </div>
+            <div className="relative z-10 w-full max-w-7xl mx-auto px-8 pointer-events-none">
+                <div className="w-full sm:w-1/2 pointer-events-auto ml-auto">
+                    <p className="text-lg font-medium text-gray-700 dark:text-gray-300 text-center sm:text-left bg-white/70 dark:bg-gray-900/80 backdrop-blur-md p-6 rounded-xl shadow-lg">
+                    I love playing piano. It's a wonderful way to express creativity and relax after a long day.
+                    </p>
+                </div>
+            </div>
+        </div>
 
-        <CanvasTextSection
-          text="Fitness is essential for me to stay balanced and energized."
-          CanvasComponent={Canvas3D}
-          canvasProps={{
-            modelPath: "/3d_models/dumbbells.glb",
-            cameraPosition: [-40, 0, 0],
-            enableZoom: false,
-            scale: 0.01,
-            position: [0, 0, 0],
-            rotation: [0.1, 0.1, 0],
-          }}
-          order="right"
-        />
+        {/* Fitness Section */}
+        <div className="relative w-full h-[500px] flex items-center">
+            <div className="absolute inset-0 w-full h-full">
+                <Canvas3D
+                  modelPath="/3d_models/dumbbells.glb"
+                  cameraPosition={[-40, 0, 0]}
+                  enableZoom={false}
+                  scale={0.01}
+                  position={[0, 0, 8]}
+                  rotation={[0.1, 0.1, 0]}
+                />
+            </div>
+            <div className="relative z-10 w-full max-w-7xl mx-auto px-8 pointer-events-none">
+                <div className="w-full sm:w-1/2 pointer-events-auto">
+                    <p className="text-lg font-medium text-gray-700 dark:text-gray-300 text-center sm:text-left bg-white/70 dark:bg-gray-900/80 backdrop-blur-md p-6 rounded-xl shadow-lg">
+                    Fitness is essential for me to stay balanced and energized.
+                    </p>
+                </div>
+            </div>
+        </div>
       </section>
     </div>
   );

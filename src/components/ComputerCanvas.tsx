@@ -1,99 +1,106 @@
-import { Suspense } from 'react';
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Preload, useFBX, useTexture, Float, MeshTransmissionMaterial, RoundedBox, Environment } from "@react-three/drei";
+import { Suspense, useState, useEffect, useRef } from 'react';
+import { Canvas, useFrame } from "@react-three/fiber";
+import { Preload, useFBX, useTexture, RoundedBox } from "@react-three/drei";
 import { afterEffects, cSharp, tensorflow, githubPng } from "../assets/assets";
-import { useScroll, useTransform, useSpring, MotionValue } from "framer-motion";
-import { motion } from "framer-motion-3d";
+import { useInView } from "framer-motion";
+import * as THREE from 'three';
 
 const Computer = () => {
   const fbx = useFBX('/3d_models/Computer/computer.fbx');
-  return <primitive object={fbx} scale={0.0025} position={[0, -2.5, 0]} rotation={[0, Math.PI, 0]} />; 
+  return <primitive object={fbx} scale={0.003} position={[0, -2.5, 0]} rotation={[0, Math.PI, 0]} />; 
 };
 
 interface ButtonProps {
-    targetPosition: [number, number, number];
-    progress: MotionValue<number>;
+    position: [number, number, number];
     icon: string;
     color?: string;
+    floatSpeed?: number;
 }
 
-const Button = ({ targetPosition, progress, icon, color = "#ffffff" }: ButtonProps) => {
+const Button = ({ position, icon, color = "#ffffff", floatSpeed = 1.5 }: ButtonProps) => {
     const texture = useTexture(icon);
+    const meshRef = useRef<THREE.Group>(null);
+    const baseY = useRef(position[1]);
     
-    // Interpolate position from center (0, -1, 0) to targetPosition based on scroll progress
-    // Start animation at 0.1 progress and finish at 0.6 for a quicker ramp up
-    const x = useTransform(progress, [0.1, 0.6], [0, targetPosition[0]]);
-    const y = useTransform(progress, [0.1, 0.6], [-1, targetPosition[1]]);
-    const z = useTransform(progress, [0.1, 0.6], [0, targetPosition[2]]);
+    // Floating animation - more subtle
+    useFrame((state) => {
+        if (meshRef.current) {
+            // Subtle floating effect with rotation
+            meshRef.current.position.y = baseY.current + Math.sin(state.clock.elapsedTime * floatSpeed + position[0]) * 0.15;
+            meshRef.current.rotation.z = Math.sin(state.clock.elapsedTime * floatSpeed * 0.5) * 0.03;
+        }
+    });
     
     return (
-        <motion.group position-x={x} position-y={y} position-z={z}>
-            <Float speed={5} rotationIntensity={0.5} floatIntensity={0.5}>
-                <group>
-                    {/* Glass Button Body */}
-                    <RoundedBox args={[1, 1, 0.2]} radius={0.1} smoothness={4}>
-                        <MeshTransmissionMaterial
-                            backside
-                            samples={4}
-                            thickness={0.2}
-                            chromaticAberration={0.05}
-                            anisotropy={0.1}
-                            distortion={0.1}
-                            distortionScale={0.1}
-                            temporalDistortion={0.1}
-                            iridescence={1}
-                            iridescenceIOR={1}
-                            iridescenceThicknessRange={[0, 1400]}
-                            roughness={0.05}
-                            color={color}
-                            toneMapped={false}
-                        />
-                    </RoundedBox>
-                    {/* Icon */}
-                    <mesh position={[0, 0, 0.11]} rotation={[0, 0, 0]}>
-                        <planeGeometry args={[0.7, 0.7]} />
-                        <meshBasicMaterial map={texture} transparent toneMapped={false} />
-                    </mesh>
-                </group>
-            </Float>
-        </motion.group>
+        <group ref={meshRef} position={position}>
+            {/* Simple solid button - no expensive glass material */}
+            <RoundedBox args={[1, 1, 0.2]} radius={0.1} smoothness={2}>
+                <meshStandardMaterial 
+                    color={color}
+                    metalness={0.3}
+                    roughness={0.4}
+                    transparent
+                    opacity={0.9}
+                />
+            </RoundedBox>
+            {/* Icon */}
+            <mesh position={[0, 0, 0.11]} rotation={[0, 0, 0]}>
+                <planeGeometry args={[0.7, 0.7]} />
+                <meshBasicMaterial map={texture} transparent toneMapped={false} />
+            </mesh>
+        </group>
     );
 };
 
 const Scene = () => {
-    const { scrollYProgress } = useScroll();
-    const smoothScroll = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
-    
     return (
-        <group position={[3, 0, 0]}>
-            <ambientLight intensity={3} />
-            <directionalLight position={[5, 5, 5]} intensity={3} castShadow />
-            <Environment preset="city" />
+        <group position={[4.5, 0, 0]}>
+            <ambientLight intensity={2} />
+            <directionalLight position={[5, 5, 5]} intensity={2} />
             <Computer />
             
             <group>
-                <Button targetPosition={[-3, 0, 2]} progress={smoothScroll} icon={afterEffects} color="#1a8bedff" />
-                <Button targetPosition={[3, 2, -2]} progress={smoothScroll} icon={tensorflow} color="#ffaa00" />
-                <Button targetPosition={[-3, 3, -2]} progress={smoothScroll} icon={githubPng} color="#ffffff" />
-                <Button targetPosition={[3, -1, 2]} progress={smoothScroll} icon={cSharp} color="#aa00ff" />
+                <Button position={[-3, 0, 2]} icon={afterEffects} color="#1a8bed" floatSpeed={1.2} />
+                <Button position={[3, 2, -2]} icon={tensorflow} color="#ffaa00" floatSpeed={1.6} />
+                <Button position={[-3, 3, -2]} icon={githubPng} color="#cccccc" floatSpeed={1.4} />
+                <Button position={[3, -1, 2]} icon={cSharp} color="#aa00ff" floatSpeed={1.8} />
             </group>
         </group>
     );
 };
 
 export const ComputerCanvas = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(containerRef, { margin: "-100px" });
+  const [shouldRender, setShouldRender] = useState(false);
+
+  // Only render when in view
+  useEffect(() => {
+    if (isInView) {
+      setShouldRender(true);
+    }
+  }, [isInView]);
+
   return (
-    <Canvas
-      frameloop="always"
-      shadows
-      camera={{ position: [0, 0, 11], fov: 45 }}
-      gl={{ preserveDrawingBuffer: true }}
-    >
-      <Suspense fallback={null}>
-        <OrbitControls enableZoom={false} enableRotate={false} maxPolarAngle={Math.PI / 2} minPolarAngle={Math.PI / 2} />
-        <Scene />
-      </Suspense>
-      <Preload all />
-    </Canvas>
+    <div ref={containerRef} style={{ width: '100%', height: '100%' }}>
+      {shouldRender && (
+        <Canvas
+          frameloop={isInView ? "always" : "never"}
+          shadows={true}
+          camera={{ position: [0, 0, 11], fov: 45 }}
+          gl={{ 
+            preserveDrawingBuffer: true,
+            powerPreference: "low-power",
+            antialias: false 
+          }}
+          dpr={[1, 1.5]} // Limit pixel ratio for performance
+        >
+          <Suspense fallback={null}>
+            <Scene />
+          </Suspense>
+          <Preload all />
+        </Canvas>
+      )}
+    </div>
   );
 };

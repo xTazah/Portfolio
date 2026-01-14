@@ -21,8 +21,8 @@ const CanvasTextSection: React.FC<CanvasTextSectionProps> = ({ text, CanvasCompo
                 </div>
             )}
             
-            <div className="flex flex-col justify-center mt-4 sm:mt-4 w-4/5 sm:w-2/5">
-                <p className="text-lg font-medium text-gray-700 dark:text-gray-300 text-center sm:text-left">
+            <div className="flex flex-col justify-center mt-4 sm:mt-0 w-4/5 sm:w-2/5">
+                <p className="text-base font-medium text-gray-700 dark:text-gray-300 bg-white/70 dark:bg-gray-900/80 backdrop-blur-md p-6 rounded-xl shadow-lg leading-relaxed">
                 {text}
                 </p>
             </div>

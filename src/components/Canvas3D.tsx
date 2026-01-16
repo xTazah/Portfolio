@@ -63,10 +63,10 @@ export const Canvas3D: React.FC<CanvasProps> = ({
         }}
         dpr={[1, 1.5]}
       >
-        {/* Scene lighting - fixed position, won't move with model */}
-        <ambientLight intensity={2.5} />
-        <directionalLight position={[10, 10, 5]} intensity={2} />
-        <directionalLight position={[-10, 5, -5]} intensity={1.5} />
+
+        <ambientLight intensity={2} />
+        <directionalLight position={[10, 10, 5]} intensity={1.5} />
+        <directionalLight position={[-10, 5, -5]} intensity={1} />
         
         <Suspense fallback={<CanvasLoader />}>
           <OrbitControls

@@ -1,13 +1,43 @@
-import { Suspense, useState, useEffect, useRef } from 'react';
+import { Suspense, useState, useEffect, useRef, useMemo } from 'react';
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Preload, useFBX, useTexture, RoundedBox } from "@react-three/drei";
+import { Preload, useGLTF, useTexture, RoundedBox } from "@react-three/drei";
 import { afterEffects, cSharp, tensorflow, githubPng } from "../assets/assets";
 import { useInView } from "framer-motion";
 import * as THREE from 'three';
 
-const Computer = () => {
-  const fbx = useFBX('/3d_models/Computer/computer.fbx');
-  return <primitive object={fbx} scale={0.003} position={[0, -2.5, 0]} rotation={[0, Math.PI, 0]} />; 
+const Monitor = () => {
+  const { scene } = useGLTF('/3d_models/monitor.glb');
+  const groupRef = useRef<THREE.Group>(null);
+  
+  // Clone the scene to avoid sharing between instances
+  const clonedScene = useMemo(() => {
+    const clone = scene.clone(true);
+    // Ensure materials are visible
+    clone.traverse((child) => {
+      if ((child as THREE.Mesh).isMesh) {
+        const mesh = child as THREE.Mesh;
+        if (mesh.material) {
+          const material = mesh.material as THREE.MeshStandardMaterial;
+          material.side = THREE.DoubleSide;
+        }
+      }
+    });
+    return clone;
+  }, [scene]);
+  
+  // Floating animation like the buttons
+  useFrame((state) => {
+    if (groupRef.current) {
+      groupRef.current.position.y = Math.sin(state.clock.elapsedTime * 0.8) * 0.15;
+      groupRef.current.rotation.z = Math.sin(state.clock.elapsedTime * 0.5) * 0.02;
+    }
+  });
+  
+  return (
+    <group ref={groupRef}>
+      <primitive object={clonedScene} scale={0.004} position={[6, 0, 0]} rotation={[0, -0.1, 0]} />
+    </group>
+  );
 };
 
 interface ButtonProps {
@@ -54,14 +84,15 @@ const Button = ({ position, icon, color = "#ffffff", floatSpeed = 1.5 }: ButtonP
 
 const Scene = () => {
     return (
-        <group position={[4.5, 0, 0]}>
-            <ambientLight intensity={2} />
-            <directionalLight position={[5, 5, 5]} intensity={2} />
-            <Computer />
+        <group position={[0, 0, 0]}>
+            <ambientLight intensity={2.5} />
+        <directionalLight position={[10, 10, 5]} intensity={3} />
+        <directionalLight position={[-10, 5, -5]} intensity={2} />
+            <Monitor />
             
             <group>
                 <Button position={[-3, 0, 2]} icon={afterEffects} color="#1a8bed" floatSpeed={1.2} />
-                <Button position={[3, 2, -2]} icon={tensorflow} color="#ffaa00" floatSpeed={1.6} />
+                <Button position={[4, 2.5, -2]} icon={tensorflow} color="#ffaa00" floatSpeed={1.6} />
                 <Button position={[-3, 3, -2]} icon={githubPng} color="#cccccc" floatSpeed={1.4} />
                 <Button position={[3, -1, 2]} icon={cSharp} color="#aa00ff" floatSpeed={1.8} />
             </group>
@@ -87,7 +118,7 @@ export const ComputerCanvas = () => {
         <Canvas
           frameloop={isInView ? "always" : "never"}
           shadows={true}
-          camera={{ position: [0, 0, 11], fov: 45 }}
+          camera={{ position: [0, 0, 11], fov: 40 }}
           gl={{ 
             preserveDrawingBuffer: true,
             powerPreference: "low-power",

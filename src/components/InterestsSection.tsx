@@ -20,9 +20,9 @@ export const InterestsSection = () => {
           </h2>
         </motion.div>
 
-        <div className="relative w-full h-[800px] flex items-center">
-            <div className="absolute inset-0 w-full h-full">
-                 <ComputerCanvas />
+        <div className="relative w-full h-[500px] flex items-center">
+            <div className="absolute right-0 top-0 w-1/2 h-full">
+                <ComputerCanvas />
             </div>
             <div className="relative z-10 w-full max-w-7xl mx-auto px-8 pointer-events-none">
                 <div className="w-full sm:w-1/2 pointer-events-auto">
@@ -41,7 +41,7 @@ export const InterestsSection = () => {
                   cameraPosition={[-40, 0, 0]}
                   enableZoom={false}
                   scale={0.11}
-                  position={[0, 0, -8]}
+                  position={[0, 0, -12]}
                   rotation={[0, -1.2, 0]}
                 />
             </div>
@@ -62,7 +62,7 @@ export const InterestsSection = () => {
                   cameraPosition={[-40, 0, 0]}
                   enableZoom={false}
                   scale={0.01}
-                  position={[0, 0, 8]}
+                  position={[0, 0, 12]}
                   rotation={[0.1, 0.1, 0]}
                 />
             </div>

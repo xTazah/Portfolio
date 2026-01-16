@@ -54,9 +54,20 @@ export const AboutMe = () => {
 
                 {/* Description */}
                 <p className="text-lg sm:text-xl font-medium text-muted-foreground leading-relaxed max-w-2xl">
-                  I'm a 22-year-old computer science bachelor's graduate with a
-                  foundation in data science, machine learning, and AI. Currently pursuing a master's degree at the University of Münster.
+                  I'm a {(() => {
+                    const today = new Date();
+                    const birth = new Date("2003-03-26");
+                    let age = today.getFullYear() - birth.getFullYear();
+                    if (
+                      today.getMonth() < birth.getMonth() ||
+                      (today.getMonth() === birth.getMonth() && today.getDate() < birth.getDate())
+                    ) {
+                      age--;
+                    }
+                    return age;
+                  })()} year-old computer science bachelor's graduate with a foundation in data science, machine learning, and AI. Currently pursuing a master's degree at the University of Münster.
                 </p>
+
               </div>
 
               {/* Right side - Map widget */}

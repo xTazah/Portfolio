@@ -4,6 +4,7 @@ import { wavingAnimation } from "../utils/animations";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Map, MapMarker, MarkerContent } from "@/components/ui/map";
+import { MailIcon } from "lucide-react";
 
 const PulsingMarker = () => (
   <div className="relative flex items-center justify-center">
@@ -26,7 +27,7 @@ export const AboutMe = () => {
         <Card className="bg-gradient-to-br from-slate-900 via-purple-900/10 to-slate-900 border-purple-500/20 backdrop-blur-sm overflow-hidden">
           <CardContent className="p-0">
             <div className="flex flex-col lg:flex-row">
-              <div className="flex-1 p-8 sm:p-12 flex flex-col gap-6">
+              <div className="flex-1 p-6 sm:p-10 flex flex-col gap-5">
                 <div>
                   <h1 className="text-4xl sm:text-6xl font-black text-white leading-tight">
                     Hi, I'm{" "}
@@ -65,8 +66,15 @@ export const AboutMe = () => {
                       age--;
                     }
                     return age;
-                  })()} year-old computer science bachelor's graduate with a foundation in data science, machine learning, and AI. Currently pursuing a master's degree at the University of Münster.
+                  })()}-year-old computer science bachelor's graduate with a strong foundation in industrial automation, data science, machine learning, and AI with a research interest in autonomous driving. Currently pursuing a graduate's degree at the University of Münster.
                 </p>
+                
+                <Separator className="bg-purple-500/20" />
+
+                <div className="flex items-center gap-3 text-muted-foreground">
+                  <MailIcon className="h-6 w-6 text-purple-400" />
+                  <a href="mailto:finn.koehler@uni-muenster.de" className="text-lg hover:underline">finn.koehler@uni-muenster.de</a>
+                </div>
 
               </div>
 

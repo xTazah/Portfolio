@@ -111,11 +111,9 @@ export const Projects = () => {
             variants={textEntry(0.1)}
             className="mt-6 text-muted-foreground text-base sm:text-lg max-w-3xl leading-relaxed text-center mx-auto"
           >
-            The following projects showcase my skills and experience through
-            real-world examples of my work. Each project is briefly described with
-            links to code repositories and live demos, reflecting my
-            ability to solve complex problems, work with different technologies,
-            and manage projects effectively.
+            The following selected projects showcase my skills and experience through
+            real-world examples of my private work. Each project is briefly described with
+            links to code repositories and live demos.
           </motion.p>
         </div>
 

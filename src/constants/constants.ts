@@ -65,48 +65,52 @@ const workExperience = [
 
 const projects = [
   {
-    name: "Dartz Scoring",
+    name: "Dartz",
     description:
-      "A comprehensive scoring website for Darts, allowing users to track scores, view statistics, and manage games in real-time.",
+      "Multiplayer darts scorekeeping app for real-time 501 games. Create lobbies, invite remote or local players, and sync turns & scoring via Firebase. Includes full rules logic, live match syncing, friends, player stats & match history.",
     tags: [
       {
         name: "react",
         color: "blue-text-gradient",
       },
       {
-        name: "mongodb",
+        name: "firebase",
         color: "green-text-gradient",
       },
       {
         name: "tailwind",
         color: "pink-text-gradient",
       },
-    ],
-    image: null, // ToDo: Add project image
-    source_code_link: "https://github.com/", // ToDo: Update with actual repo
-    live_link: "https://dartz.myurl",
-  },
-  {
-    name: "Portfolio",
-    description:
-      "My personal portfolio website showcasing my work, skills, and experience. Built with React, Three.js, and Tailwind CSS.",
-    tags: [
       {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "threejs",
-        color: "green-text-gradient",
-      },
-      {
-        name: "tailwindcss",
+        name: "postgresql",
         color: "pink-text-gradient",
       },
     ],
     image: null, // ToDo: Add project image
-    source_code_link: "https://github.com/", // ToDo: Update with actual repo
-    live_link: "#",
+    source_code_link: "https://github.com/xTazah/Dartz",
+    live_link: "https://dartz.finn-koehler.com",
+  },
+  {
+    name: "Factura Automation",
+    description:
+      "Automates the digitization of handwritten invoices. It features a mobile camera-style UI for capturing and processing invoices, using OpenCV for image capturing, OpenAI’s GPT-4 for handwritten-text extraction, and Google Sheets for data storage.",
+    tags: [
+      {
+        name: "python",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "openai",
+        color: "green-text-gradient",
+      },
+      {
+        name: "opencv",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: null,
+    source_code_link: "https://github.com/xTazah/FacturaAutomation",
+    live_link: null,
   },
 ];
 

@@ -1,4 +1,4 @@
-import { beckhoff, hsbi, uniMuenster } from "../assets/assets";
+import { beckhoff, hsbi, uniMuenster, dartzPreview } from "../assets/assets";
 
 const workExperience = [
   {
@@ -86,7 +86,7 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: "src/assets/Dartz-Preview.gif",
+    image: dartzPreview,
     source_code_link: "https://github.com/xTazah/Dartz",
     live_link: "https://dartz.finn-koehler.com",
   },

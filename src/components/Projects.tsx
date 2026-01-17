@@ -28,13 +28,13 @@ const ProjectCard = ({
       >
         <Card className="h-full flex flex-col bg-gradient-to-br from-slate-900 via-purple-900/20 to-slate-900 border-purple-500/20 backdrop-blur-sm overflow-hidden group hover:border-purple-500/40 transition-all duration-300">
           <CardHeader className="p-0 relative">
-            <div className="relative w-full h-[240px] overflow-hidden">
+            <div className="relative w-full h-[200px] overflow-hidden">
               <div className="w-full h-full bg-gradient-to-br from-purple-900/30 to-slate-900 flex items-center justify-center">
                 {image ? (
                   <img
                     src={image}
                     alt={name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 ) : (
                   <div className="text-muted-foreground/50 text-sm">Project Preview</div>

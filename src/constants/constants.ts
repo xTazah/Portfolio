@@ -86,7 +86,7 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: null, // ToDo: Add project image
+    image: "src/assets/Dartz-Preview.gif",
     source_code_link: "https://github.com/xTazah/Dartz",
     live_link: "https://dartz.finn-koehler.com",
   },

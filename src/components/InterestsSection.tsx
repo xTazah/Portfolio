@@ -23,6 +23,9 @@ export const InterestsSection = () => {
   return (
     <div className="mt-20">
       <section className="relative w-full backdrop-blur-sm px-8 mx-auto flex flex-col items-center space-y-12">
+        <span className="hash-span" id="Interests">
+          &nbsp;
+        </span>
         <motion.div variants={textEntry(0)}>
           <p
             className={`sm:text-[18px] text-[14px] text-purple-400 uppercase tracking-wider text-center font-semibold`}

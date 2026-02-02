@@ -5,7 +5,7 @@ import { afterEffects, cSharp, tensorflow, githubPng } from "../assets/assets";
 import { useInView } from "framer-motion";
 import * as THREE from 'three';
 
-const Monitor = () => {
+const Monitor = ({ isMobile }: { isMobile: boolean }) => {
   const { scene } = useGLTF('/3d_models/monitor.glb');
   const groupRef = useRef<THREE.Group>(null);
   
@@ -35,7 +35,12 @@ const Monitor = () => {
   
   return (
     <group ref={groupRef}>
-      <primitive object={clonedScene} scale={0.004} position={[6, 0, 0]} rotation={[0, -0.1, 0]} />
+      <primitive 
+        object={clonedScene} 
+        scale={isMobile ? 0.0025 : 0.004} 
+        position={isMobile ? [3.75, -1, 0] : [6, 0, 0]} 
+        rotation={[0, -0.1, 0]} 
+      />
     </group>
   );
 };
@@ -63,7 +68,6 @@ const Button = ({ position, icon, color = "#ffffff", floatSpeed = 1.5 }: ButtonP
     
     return (
         <group ref={meshRef} position={position}>
-            {/* Simple solid button - no expensive glass material */}
             <RoundedBox args={[1, 1, 0.2]} radius={0.1} smoothness={2}>
                 <meshStandardMaterial 
                     color={color}
@@ -83,14 +87,28 @@ const Button = ({ position, icon, color = "#ffffff", floatSpeed = 1.5 }: ButtonP
 };
 
 const Scene = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
+    setIsMobile(mediaQuery.matches);
+    const handleMediaQueryChange = (event: MediaQueryListEvent) => {
+      setIsMobile(event.matches);
+    };
+    mediaQuery.addEventListener("change", handleMediaQueryChange);
+    return () => {
+      mediaQuery.removeEventListener("change", handleMediaQueryChange);
+    };
+  }, []);
+
     return (
         <group position={[0, 0, 0]}>
             <ambientLight intensity={2.5} />
         <directionalLight position={[10, 10, 5]} intensity={3} />
         <directionalLight position={[-10, 5, -5]} intensity={2} />
-            <Monitor />
+            <Monitor isMobile={isMobile} />
             
-            <group>
+            <group scale={isMobile ? 0.6 : 1} position={isMobile ? [0, -1, 0] : [0, 0, 0]}>
                 <Button position={[-3, 0, 2]} icon={afterEffects} color="#1a8bed" floatSpeed={1.2} />
                 <Button position={[4, 2.5, -2]} icon={tensorflow} color="#ffaa00" floatSpeed={1.6} />
                 <Button position={[-3, 3, -2]} icon={githubPng} color="#cccccc" floatSpeed={1.4} />

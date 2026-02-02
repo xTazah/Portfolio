@@ -12,14 +12,19 @@ export const NavBar = () => {
       
       // Update active section based on scroll position
       const sections = ["AboutMe", "Work", "Projects"];
-      const current = sections.find((section) => {
+      
+      let current = "";
+
+      for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
-          return rect.top <= 100 && rect.bottom >= 100;
+          if (rect.top <= 150) {
+            current = section;
+          }
         }
-        return false;
-      });
+      }
+
       if (current) setActiveSection(current);
     };
 

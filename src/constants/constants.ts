@@ -1,4 +1,4 @@
-import { beckhoff, hsbi, uniMuenster, dartzPreview } from "../assets/assets";
+import { beckhoff, hsbi, uniMuenster, dartzPreview, portfolioPreview } from "../assets/assets";
 
 const workExperience = [
   {
@@ -57,8 +57,8 @@ const workExperience = [
     points: [
       "Dual study program in Computer Science in cooperation with Beckhoff Automation",
       "Bachelor of Engineering degree",
-      "Overall grade: 1.8 (GPA equivalent: ~3.2)",
-      "Bachelor thesis grade: 1.3 (GPA equivalent: ~3.7)",
+      "Overall grade: 1,8 (US GPA equivalent: ~3.5)",
+      "Bachelor thesis grade: 1,3 (US GPA equivalent: ~3.8)",
     ],
   },
 ];
@@ -112,6 +112,24 @@ const projects = [
     source_code_link: "https://github.com/xTazah/FacturaAutomation",
     live_link: null,
   },
+  {
+    name: "Portfolio",
+    description:
+      "Portfolio website for showcasing my work and experience. The website you are currently visiting. It is built with React and Tailwind CSS.",
+    tags: [
+      {
+        name: "react",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "tailwind",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: portfolioPreview,
+    source_code_link: "https://github.com/xTazah/Portfolio",
+    live_link: null,
+  }
 ];
 
 export { workExperience, projects };

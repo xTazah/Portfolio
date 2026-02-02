@@ -7,5 +7,6 @@ import cSharp from "./c-sharp.png";
 import tensorflow from "./tensorflow.png";
 import githubPng from "./github.png";
 import dartzPreview from "./Dartz-Preview.gif";
+import portfolioPreview from "./Portfolio-Preview.gif";
 
-export { beckhoff, hsbi, uniMuenster, github, afterEffects, cSharp, tensorflow, githubPng, dartzPreview };
+export { beckhoff, hsbi, uniMuenster, github, afterEffects, cSharp, tensorflow, githubPng, dartzPreview, portfolioPreview };

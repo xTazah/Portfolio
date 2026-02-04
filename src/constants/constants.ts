@@ -1,4 +1,4 @@
-import { beckhoff, hsbi, uniMuenster, dartzPreview, portfolioPreview } from "../assets/assets";
+import { beckhoff, hsbi, uniMuenster, dartzPreview, portfolioPreview, wwUtilityPreview } from "../assets/assets";
 
 const workExperience = [
   {
@@ -89,6 +89,28 @@ const projects = [
     image: dartzPreview,
     source_code_link: "https://github.com/xTazah/Dartz",
     live_link: "https://dartz.finn-koehler.com",
+  },
+  {
+    name: "wwUtility",
+    description:
+      "Full-stack automation tool for WWU Münster. Scheduled sports course and library, intelligent seat reservations with features like rapid booking, priority-ordered seat preferences, and background task scheduling. The system solves captchas via OCR and uses university credentials for authentication.",
+    tags: [
+      {
+        name: "python",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "react",
+        color: "green-text-gradient",
+      },
+      {
+        name: "flask",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: wwUtilityPreview,
+    source_code_link: "https://github.com/xTazah/wwUtility",
+    live_link: null,
   },
   {
     name: "Factura Automation",

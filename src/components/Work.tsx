@@ -79,7 +79,7 @@ export const Work = () => {
               <WorkCard key={`experience-${index}`} experience={experience} />
             ))}
           </VerticalTimeline>
-          <a href="/CV_Koehler_Finn.pdf" download="CV_Koehler_Finn.pdf">
+          <a href="/CV_Koehler_Finn_Feb_2026.pdf" download="CV_Koehler_Finn_Feb_2026.pdf">
             <Button
               size="lg"
               className="mt-10 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold shadow-lg hover:shadow-xl transition-all"

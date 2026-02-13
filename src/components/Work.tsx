@@ -23,7 +23,7 @@ const WorkCard = ({ experience }) => {
       date={experience.date}
       iconStyle={{ background: experience.iconBg }}
       icon={
-        <div className="flex justify-center items-center w-full h-full">
+        <div className="flex justify-center items-center w-full h-full overflow-hidden rounded-full">
           <img
             src={experience.icon}
             alt={experience.company_name}
@@ -35,7 +35,7 @@ const WorkCard = ({ experience }) => {
       <div>
         <h3 className="text-white text-[24px] font-bold">{experience.title}</h3>
         <p
-          className="text-purple-300 text-[16px] font-semibold"
+          className="text-purple-300 !text-[18px] font-semibold"
           style={{ margin: 0 }}
         >
           {experience.company_name}

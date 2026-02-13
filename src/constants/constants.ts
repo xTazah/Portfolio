@@ -1,16 +1,29 @@
-import { beckhoff, hsbi, uniMuenster, dartzPreview, portfolioPreview, wwUtilityPreview } from "../assets/assets";
+import { beckhoff, hsbi, uniMuenster, berkeleyLogo, dartzPreview, portfolioPreview, wwUtilityPreview } from "../assets/assets";
 
 const workExperience = [
+  {
+    title: "Graduate Student - Computer Science",
+    company_name: "University of California, Berkeley",
+    icon: berkeleyLogo,
+    iconBg: "#003262",
+    date: "August 2025 - January 2026",
+    points: [
+      "Self-funded semester abroad",
+      "Taking COMPSCI 287H (Algorithmic Human-Robot Interaction) to learn how robots can work better with people",
+      "COMPSCI C249A (Embedded Systems) and ELENG 206A (Intro to Robotics) for kinematics and real-time control",
+      "EECS 283A (NLP) and DATA 145 (Evidence and Uncertainty) to handle messy, real-world data",
+    ],
+  },
   {
     title: "Master of Science - Information Systems",
     company_name: "University of Münster",
     icon: uniMuenster,
     iconBg: "white",
-    date: "October 2025 - Present",
+    date: "October 2025 - September 2027",
     points: [
-      "Master's degree in Information Systems with a major in Data Science",
-      "Courses taught in English",
-      "Focus on advanced data science, machine learning, and information systems research",
+      "Master's in Information Systems with a focus on Data Science",
+      "All courses taught in English",
+      "Specializing in machine learning and data science research",
     ],
   },
   {

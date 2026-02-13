@@ -6,7 +6,7 @@ const workExperience = [
     company_name: "University of California, Berkeley",
     icon: berkeleyLogo,
     iconBg: "#003262",
-    date: "August 2025 - January 2026",
+    date: "August 2026 - January 2027",
     points: [
       "Self-funded semester abroad",
       "Taking COMPSCI 287H (Algorithmic Human-Robot Interaction) to learn how robots can work better with people",

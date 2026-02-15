@@ -8,10 +8,12 @@ const workExperience = [
     iconBg: "#003262",
     date: "August 2026 - January 2027",
     points: [
-      "Self-funded semester abroad",
-      "Taking COMPSCI 287H (Algorithmic Human-Robot Interaction) to learn how robots can work better with people",
-      "COMPSCI C249A (Embedded Systems) and ELENG 206A (Intro to Robotics) for kinematics and real-time control",
-      "EECS 283A (NLP) and DATA 145 (Evidence and Uncertainty) to handle messy, real-world data",
+      "Self-funded semester abroad - course enrollment subject to availability",
+      "MECENG 236C (Vehicle Dynamics & Control) - automotive dynamics, active safety systems (ABS, traction control, stability control), and autonomous vehicle technology",
+      "COMPSCI 287 (Advanced Robotics) - planning, control, and estimation under uncertainty for real robot systems",
+      "COMPSCI 287H (Algorithmic Human-Robot Interaction) - algorithms and AI for effective human-robot collaboration",
+      "COMPSCI C249A (Intro to Embedded Systems) - models, analysis, and control for real-time embedded systems interfacing with the physical world",
+      "MECENG 236U (Dynamics and Control of Autonomous Flight) - UAV dynamics, control strategies, and hands-on quadcopter programming",
     ],
   },
   {

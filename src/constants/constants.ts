@@ -1,4 +1,4 @@
-import { beckhoff, hsbi, uniMuenster, berkeleyLogo, dartzPreview, portfolioPreview, wwUtilityPreview } from "../assets/assets";
+import { beckhoff, hsbi, uniMuenster, berkeleyLogo, dartzPreview, portfolioPreview, wwUtilityPreview, openLatexPreview } from "../assets/assets";
 
 const workExperience = [
   {
@@ -79,6 +79,28 @@ const workExperience = [
 ];
 
 const projects = [
+  {
+    name: "OpenLatex",
+    description:
+      "Locally-run LaTeX editor with live PDF preview, designed to work alongside VS Code so AI assistants can edit .tex files on disk while you write. Forked from open-prism; I stripped out the AI/IndexedDB/cloud layer and added a real filesystem backend with Chokidar watching and debounced disk writes, full Git integration (branch indicators, staging, commits, push/pull), a recursive file tree sidebar, and table-of-contents parsing with scroll sync.",
+    tags: [
+      {
+        name: "react",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "typescript",
+        color: "green-text-gradient",
+      },
+      {
+        name: "codemirror",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: openLatexPreview,
+    source_code_link: "https://github.com/xTazah/OpenLatex",
+    live_link: null,
+  },
   {
     name: "Dartz",
     description:

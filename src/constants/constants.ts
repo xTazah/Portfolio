@@ -104,14 +104,18 @@ const projects = [
   {
     name: "Dartz",
     description:
-      "Multiplayer darts scorekeeping app for real-time 501 games. Create lobbies, invite remote or local players, and sync turns & scoring via Firebase. Includes full rules logic, live match syncing, friends, player stats & match history.",
+      "Multiplayer darts scorekeeping app for real-time 501 games. Create lobbies, invite remote or local players, and sync turns & scoring through a running C# game server via SignalR. Includes full rules logic, live match syncing, friends, player statistics, and match history.",
     tags: [
       {
         name: "react",
         color: "blue-text-gradient",
       },
       {
-        name: "firebase",
+        name: "c#",
+        color: "green-text-gradient",
+      },
+      {
+        name: "signalr",
         color: "green-text-gradient",
       },
       {

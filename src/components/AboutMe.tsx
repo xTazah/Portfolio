@@ -16,6 +16,15 @@ const PulsingMarker = () => (
 
 export const AboutMe = () => {
   const munsterCoords = { lat: 51.9607, lng: 7.6261 };
+  const berkeleyCoords = { lat: 37.8722, lng: -122.2597 };
+
+  const today = new Date();
+  const currentYear = today.getFullYear();
+  const augustFifteenth = new Date(currentYear, 7, 15); // month is 0-indexed
+  const isBerkeleyTime = today >= augustFifteenth;
+
+  const coords = isBerkeleyTime ? berkeleyCoords : munsterCoords;
+  const locationName = isBerkeleyTime ? "Berkeley, California, USA" : "Münster, Germany";
 
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8">
@@ -50,7 +59,7 @@ export const AboutMe = () => {
                 {/* Location */}
                 <div className="flex items-center gap-3 text-muted-foreground">
                   <MapPinIcon className="h-6 w-6 text-purple-400" />
-                  <span className="text-lg">Münster, Germany</span>
+                  <span className="text-lg">{locationName}</span>
                 </div>
 
                 {/* Description */}
@@ -66,14 +75,14 @@ export const AboutMe = () => {
                       age--;
                     }
                     return age;
-                  })()}-year-old computer science bachelor's graduate with a strong foundation in industrial automation, data science, machine learning, and AI with a research interest in autonomous driving. Currently pursuing a graduate's degree at the University of Münster.
+                  })()}-year-old computer science bachelor's graduate with a strong foundation in industrial automation, data science, machine learning, and AI with a research interest in autonomous driving. Currently pursuing a graduate's degree at the University of Münster. Incoming visiting student at UC Berkeley.
                 </p>
                 
                 <Separator className="bg-purple-500/20" />
 
                 <div className="flex items-center gap-3 text-muted-foreground">
                   <MailIcon className="h-6 w-6 text-purple-400" />
-                  <a href="mailto:finn.koehler@uni-muenster.de" className="text-lg hover:underline">finn.koehler@uni-muenster.de</a>
+                  <a href="mailto:finn.koehler@berkeley.edu" className="text-lg hover:underline">finn.koehler@berkeley.edu</a>
                 </div>
 
               </div>
@@ -86,7 +95,7 @@ export const AboutMe = () => {
                 <div className="absolute opacity-50 inset-0 z-10 pointer-events-none bg-gradient-to-b from-slate-900/40 via-transparent to-slate-900/60" />
                 
                 <Map
-                  center={[munsterCoords.lng, munsterCoords.lat - 0.001]}
+                  center={[coords.lng, coords.lat - 0.001]}
                   zoom={12}
                   theme="dark"
                   interactive={false}
@@ -98,8 +107,8 @@ export const AboutMe = () => {
                   touchZoomRotate={false}
                 >
                   <MapMarker
-                    longitude={munsterCoords.lng}
-                    latitude={munsterCoords.lat - 0.001}
+                    longitude={coords.lng}
+                    latitude={coords.lat - 0.001}
                   >
                     <MarkerContent>
                       <PulsingMarker />

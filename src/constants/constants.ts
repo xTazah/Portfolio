@@ -1,4 +1,4 @@
-import { beckhoff, hsbi, uniMuenster, berkeleyLogo, dartzPreview, portfolioPreview, wwUtilityPreview, openLatexPreview, gaussianThesisPreview } from "../assets/assets";
+import { beckhoff, hsbi, uniMuenster, berkeleyLogo, dartzPreview, wwUtilityPreview, openLatexPreview, gaussianThesisPreview } from "../assets/assets";
 
 const workExperience = [
   {
@@ -223,29 +223,6 @@ const projects = [
     ],
     image: null,
     source_code_link: "https://github.com/xTazah/FacturaAutomation",
-    live_link: null,
-    pdf_link: null,
-  },
-  {
-    name: "Portfolio",
-    description:
-      "Portfolio website for showcasing my work and experience. The website you are currently visiting. It is built with React and Tailwind CSS.",
-    tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "framer-motion",
-        color: "green-text-gradient",
-      },
-      {
-        name: "tailwind",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: portfolioPreview,
-    source_code_link: "https://github.com/xTazah/Portfolio",
     live_link: null,
     pdf_link: null,
   }

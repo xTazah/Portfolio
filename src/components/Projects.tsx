@@ -20,10 +20,10 @@ const ProjectCard = ({
   isMobile,
 }) => {
   const CardContentBlock = (
-    <Card className="h-full flex flex-col bg-gradient-to-br from-slate-900 via-purple-900/20 to-slate-900 border-purple-500/20 backdrop-blur-sm overflow-hidden group hover:border-purple-500/40 transition-all duration-300">
+    <Card className="h-full flex flex-col bg-card border-border backdrop-blur-sm overflow-hidden group hover:border-primary/40 transition-all duration-300">
       <CardHeader className="p-0 relative">
         <div className="relative w-full h-[200px] overflow-hidden">
-          <div className="w-full h-full bg-gradient-to-br from-purple-900/30 to-slate-900 flex items-center justify-center">
+          <div className="w-full h-full bg-muted flex items-center justify-center">
             {image ? (
               <img
                 src={image}
@@ -51,7 +51,7 @@ const ProjectCard = ({
                 href={pdf_link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-purple-600/80 hover:bg-purple-600 backdrop-blur-sm flex items-center justify-center transition-all hover:scale-110"
+                className="w-10 h-10 rounded-full bg-primary/80 hover:bg-primary backdrop-blur-sm flex items-center justify-center transition-all hover:scale-110"
                 title="Read PDF"
               >
                 <FileText className="w-5 h-5 text-white" />
@@ -60,7 +60,7 @@ const ProjectCard = ({
             {live_link && live_link !== "#" && (
               <button
                 onClick={() => window.open(live_link, "_blank")}
-                className="w-10 h-10 rounded-full bg-purple-600/80 hover:bg-purple-600 backdrop-blur-sm flex items-center justify-center transition-all hover:scale-110"
+                className="w-10 h-10 rounded-full bg-primary/80 hover:bg-primary backdrop-blur-sm flex items-center justify-center transition-all hover:scale-110"
                 title="View Live Demo"
               >
                 <ExternalLink className="w-5 h-5 text-white" />
@@ -71,7 +71,7 @@ const ProjectCard = ({
       </CardHeader>
 
       <CardContent className="flex-1 pt-6">
-        <CardTitle className="text-2xl font-bold text-white mb-3 group-hover:text-purple-300 transition-colors">
+        <CardTitle className="text-2xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
           {name}
         </CardTitle>
         <p className="text-sm text-muted-foreground leading-relaxed">
@@ -84,7 +84,7 @@ const ProjectCard = ({
           <Badge 
             key={tag.name} 
             variant="secondary" 
-            className="bg-purple-500/10 text-purple-300 border-purple-500/30 hover:bg-purple-500/20"
+            className="bg-primary/10 text-primary border-primary/30 hover:bg-primary/20"
           >
             #{tag.name}
           </Badge>
@@ -138,7 +138,7 @@ export const Projects = () => {
       
       <div className="max-w-7xl mx-auto">
         <motion.div variants={textEntry(0)}>
-          <p className="sm:text-lg text-sm text-purple-400 uppercase tracking-wider text-center font-semibold">
+          <p className="sm:text-lg text-sm text-primary uppercase tracking-wider text-center font-semibold">
             My work
           </p>
           <h2 className="text-gray-900 dark:text-white font-black md:text-6xl sm:text-5xl text-4xl text-center mt-2">

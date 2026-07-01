@@ -44,7 +44,7 @@ export const NavBar = () => {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled
-          ? "bg-slate-900/80 backdrop-blur-lg border-b border-purple-500/20 shadow-lg"
+          ? "bg-background/80 backdrop-blur-lg border-b border-border shadow-lg"
           : "bg-transparent"
       )}
     >
@@ -52,7 +52,7 @@ export const NavBar = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <span className="text-2xl font-black bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <span className="text-2xl font-black text-primary">
               FK
             </span>
           </div>
@@ -66,14 +66,14 @@ export const NavBar = () => {
                 className={cn(
                   "text-sm font-medium transition-all duration-200 relative group",
                   activeSection === item.id
-                    ? "text-purple-400"
-                    : "text-muted-foreground hover:text-white"
+                    ? "text-primary"
+                    : "text-muted-foreground hover:text-foreground"
                 )}
               >
                 {item.name}
                 <span
                   className={cn(
-                    "absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 transition-all duration-200",
+                    "absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-200",
                     activeSection === item.id ? "w-full" : "w-0 group-hover:w-full"
                   )}
                 />

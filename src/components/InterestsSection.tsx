@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Canvas3D } from "./Canvas3D";
 import { ComputerCanvas } from "./ComputerCanvas";
 import { textEntry } from "../utils/animations";
+import { Card, CardContent } from "@/components/ui/card";
 
 export const InterestsSection = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -22,13 +23,13 @@ export const InterestsSection = () => {
   }, []);
   return (
     <div className="mt-20">
-      <section className="relative w-full backdrop-blur-sm px-8 mx-auto flex flex-col items-center space-y-12">
+      <section className="relative w-full px-8 mx-auto flex flex-col items-center space-y-12">
         <span className="hash-span" id="Interests">
           &nbsp;
         </span>
         <motion.div variants={textEntry(0)}>
           <p
-            className={`sm:text-[18px] text-[14px] text-purple-400 uppercase tracking-wider text-center font-semibold`}
+            className={`sm:text-[18px] text-[14px] text-primary uppercase tracking-wider text-center font-semibold`}
           >
             A Peek into My World
           </p>
@@ -45,9 +46,13 @@ export const InterestsSection = () => {
             </div>
             <div className={`relative z-10 w-full max-w-7xl mx-auto px-8 pointer-events-none md:h-full md:flex md:items-center`}>
                 <div className="w-full md:w-1/2 pointer-events-auto mt-4 md:mt-0">
-                    <p className="text-lg font-medium text-gray-700 dark:text-gray-300 text-center sm:text-left bg-white/70 dark:bg-gray-900/80 backdrop-blur-md p-6 rounded-xl shadow-lg">
-                    I'm always chasing the next tool that makes me build faster and better — from AI copilots to whatever framework dropped last week. If it sharpens my workflow, I'll dive in.
-                    </p>
+                    <Card className="bg-card border-border backdrop-blur-sm shadow-lg">
+                      <CardContent className="p-6">
+                        <p className="text-lg font-medium text-muted-foreground leading-relaxed text-center sm:text-left">
+                        I'm always chasing the next tool that makes me build faster and better — from AI copilots to whatever framework dropped last week. If it sharpens my workflow, I'll dive in.
+                        </p>
+                      </CardContent>
+                    </Card>
                 </div>
             </div>
         </div>
@@ -65,9 +70,13 @@ export const InterestsSection = () => {
             </div>
             <div className="relative z-10 w-full max-w-7xl mx-auto px-8 pointer-events-none md:h-full md:flex md:items-center">
                 <div className="w-full md:w-1/2 pointer-events-auto md:ml-auto mt-4 md:mt-0">
-                    <p className="text-lg font-medium text-gray-700 dark:text-gray-300 text-center sm:text-left bg-white/70 dark:bg-gray-900/80 backdrop-blur-md p-6 rounded-xl shadow-lg">
-                    When the code stops, the piano starts. It's where I switch off the analytical side of my brain and just play what I feel like.
-                    </p>
+                    <Card className="bg-card border-border backdrop-blur-sm shadow-lg">
+                      <CardContent className="p-6">
+                        <p className="text-lg font-medium text-muted-foreground leading-relaxed text-center sm:text-left">
+                        When the code stops, the piano starts. It's where I switch off the analytical side of my brain and just play what I feel like.
+                        </p>
+                      </CardContent>
+                    </Card>
                 </div>
             </div>
         </div>
@@ -85,9 +94,13 @@ export const InterestsSection = () => {
             </div>
             <div className="relative z-10 w-full max-w-7xl mx-auto px-8 pointer-events-none md:h-full md:flex md:items-center">
                 <div className="w-full md:w-1/2 pointer-events-auto mt-4 md:mt-0">
-                    <p className="text-lg font-medium text-gray-700 dark:text-gray-300 text-center sm:text-left bg-white/70 dark:bg-gray-900/80 backdrop-blur-md p-6 rounded-xl shadow-lg">
-                    I like playing handball, volleyball, and hitting the gym to get my mind free after a long day.
-                    </p>
+                    <Card className="bg-card border-border backdrop-blur-sm shadow-lg">
+                      <CardContent className="p-6">
+                        <p className="text-lg font-medium text-muted-foreground leading-relaxed text-center sm:text-left">
+                        I like playing handball, volleyball, and hitting the gym to get my mind free after a long day.
+                        </p>
+                      </CardContent>
+                    </Card>
                 </div>
             </div>
         </div>

@@ -205,7 +205,10 @@ const Map = forwardRef<MapRef, MapProps>(function Map(
   }, []);
 
   useEffect(() => {
-    if (!mapInstance || !resolvedTheme) return;
+    // Wait until the map's initial style has actually loaded — calling setStyle
+    // while the first style is still loading gets swallowed by MapLibre, which is
+    // why theme changes during/right after load previously failed to apply.
+    if (!mapInstance || !resolvedTheme || !isLoaded) return;
 
     const newStyle =
       resolvedTheme === "dark" ? mapStyles.dark : mapStyles.light;
@@ -216,8 +219,11 @@ const Map = forwardRef<MapRef, MapProps>(function Map(
     currentStyleRef.current = newStyle;
     setIsStyleLoaded(false);
 
-    mapInstance.setStyle(newStyle, { diff: true });
-  }, [mapInstance, resolvedTheme, mapStyles, clearStyleTimeout]);
+    // diff:false forces a full style reload. Diffing between the light (positron)
+    // and dark (dark-matter) Carto styles is unreliable and can leave the previous
+    // style rendered, so we always do a clean swap.
+    mapInstance.setStyle(newStyle, { diff: false });
+  }, [mapInstance, resolvedTheme, mapStyles, isLoaded, clearStyleTimeout]);
 
   const contextValue = useMemo(
     () => ({

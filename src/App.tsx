@@ -9,7 +9,7 @@ import { InterestsSection } from "./components/InterestsSection";
 const App = () => {
   return (
     <BrowserRouter>
-      <div className="relative min-h-screen bg-background">
+      <div className="relative min-h-screen bg-background overflow-x-hidden">
         {/* Grid Background */}
         <div className="grid-background fixed inset-0 pointer-events-none" />
         

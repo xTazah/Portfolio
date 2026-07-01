@@ -28,7 +28,7 @@ const ProjectCard = ({
               <img
                 src={image}
                 alt={name}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-full object-contain group-hover:scale-[1.02] transition-transform duration-500"
               />
             ) : (
               <div className="text-muted-foreground/50 text-sm">Project Preview</div>
@@ -104,9 +104,9 @@ const ProjectCard = ({
           options={{
             max: 10,
             scale: 1.01,
-            speed: 450,
+            speed: 250,
           }}
-          className="h-full"
+          className="h-full [transition:transform_250ms_ease-out]"
         >
           {CardContentBlock}
         </Tilt>

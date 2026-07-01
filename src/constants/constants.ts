@@ -1,4 +1,4 @@
-import { beckhoff, hsbi, uniMuenster, berkeleyLogo, dartzPreview, portfolioPreview, wwUtilityPreview, openLatexPreview } from "../assets/assets";
+import { beckhoff, hsbi, uniMuenster, berkeleyLogo, dartzPreview, portfolioPreview, wwUtilityPreview, openLatexPreview, gaussianThesisPreview } from "../assets/assets";
 
 const workExperience = [
   {
@@ -6,7 +6,7 @@ const workExperience = [
     company_name: "University of California, Berkeley",
     icon: berkeleyLogo,
     iconBg: "#003262",
-    date: "August 2026 - January 2027",
+    date: "August 2026 - December 2026",
     points: [
       "Self-funded semester abroad - course enrollment subject to availability",
       "MECENG 236C (Vehicle Dynamics & Control) - automotive dynamics, active safety systems (ABS, traction control, stability control), and autonomous vehicle technology",
@@ -80,6 +80,37 @@ const workExperience = [
 
 const projects = [
   {
+    name: "Pedestrian Reconstruction in Street Gaussians via Part-Based Rigid Decomposition",
+    description:
+      "Thesis on reconstructing articulated pedestrians in driving scenes while staying inside the rigid object design of Street Gaussians. I split each pedestrian into 10 SMPL driven rigid body segments posed via forward kinematics with learnable per instance pose residuals, using no skinning weights and no deformation network at render time. I built the new node type end to end in the DriveStudio framework and evaluated it on the Waymo Open Dataset, improving close range human PSNR by 3.69 dB over the rigid baseline.",
+    tags: [
+      {
+        name: "pytorch",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "gaussian splatting",
+        color: "green-text-gradient",
+      },
+      {
+        name: "smpl",
+        color: "green-text-gradient",
+      },
+      {
+        name: "cuda",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "waymo",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: gaussianThesisPreview,
+    source_code_link: null,
+    live_link: null,
+    pdf_link: "/pedestrian-streetgs.pdf",
+  },
+  {
     name: "OpenLatex",
     description:
       "Locally-run LaTeX editor with live PDF preview, designed to work alongside VS Code so AI assistants can edit .tex files on disk while you write. Forked from open-prism; I stripped out the AI/IndexedDB/cloud layer and added a real filesystem backend with Chokidar watching and debounced disk writes, full Git integration (branch indicators, staging, commits, push/pull), a recursive file tree sidebar, and table-of-contents parsing with scroll sync.",
@@ -100,6 +131,7 @@ const projects = [
     image: openLatexPreview,
     source_code_link: "https://github.com/xTazah/OpenLatex",
     live_link: null,
+    pdf_link: null,
   },
   {
     name: "Dartz",
@@ -130,6 +162,7 @@ const projects = [
     image: dartzPreview,
     source_code_link: "https://github.com/xTazah/Dartz",
     live_link: "https://dartz.finn-koehler.com",
+    pdf_link: null,
   },
   {
     name: "wwUtility",
@@ -152,6 +185,7 @@ const projects = [
     image: wwUtilityPreview,
     source_code_link: "https://github.com/xTazah/wwUtility",
     live_link: null,
+    pdf_link: null,
   },
   {
     name: "Factura Automation",
@@ -174,6 +208,7 @@ const projects = [
     image: null,
     source_code_link: "https://github.com/xTazah/FacturaAutomation",
     live_link: null,
+    pdf_link: null,
   },
   {
     name: "Portfolio",
@@ -192,6 +227,7 @@ const projects = [
     image: portfolioPreview,
     source_code_link: "https://github.com/xTazah/Portfolio",
     live_link: null,
+    pdf_link: null,
   }
 ];
 

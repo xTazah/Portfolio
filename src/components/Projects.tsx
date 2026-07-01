@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Tilt } from "react-tilt";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, FileText } from "lucide-react";
 import { projects } from "../constants/constants";
 import { github } from "../assets/assets";
 import { textEntry } from "../utils/animations";
@@ -16,6 +16,7 @@ const ProjectCard = ({
   image,
   source_code_link,
   live_link,
+  pdf_link,
   isMobile,
 }) => {
   const CardContentBlock = (
@@ -36,13 +37,26 @@ const ProjectCard = ({
           
           {/* Action buttons overlay */}
           <div className="absolute top-3 right-3 flex gap-2 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300">
-            <button
-              onClick={() => window.open(source_code_link, "_blank")}
-              className="w-10 h-10 rounded-full bg-black/70 hover:bg-black/90 backdrop-blur-sm flex items-center justify-center transition-all hover:scale-110"
-              title="View Source Code"
-            >
-              <img src={github} alt="github" className="w-5 h-5 invert" />
-            </button>
+            {source_code_link && (
+              <button
+                onClick={() => window.open(source_code_link, "_blank")}
+                className="w-10 h-10 rounded-full bg-black/70 hover:bg-black/90 backdrop-blur-sm flex items-center justify-center transition-all hover:scale-110"
+                title="View Source Code"
+              >
+                <img src={github} alt="github" className="w-5 h-5 invert" />
+              </button>
+            )}
+            {pdf_link && (
+              <a
+                href={pdf_link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-purple-600/80 hover:bg-purple-600 backdrop-blur-sm flex items-center justify-center transition-all hover:scale-110"
+                title="Read PDF"
+              >
+                <FileText className="w-5 h-5 text-white" />
+              </a>
+            )}
             {live_link && live_link !== "#" && (
               <button
                 onClick={() => window.open(live_link, "_blank")}

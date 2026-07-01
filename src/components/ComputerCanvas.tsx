@@ -135,14 +135,14 @@ export const ComputerCanvas = () => {
       {shouldRender && (
         <Canvas
           frameloop={isInView ? "always" : "never"}
-          shadows={true}
+          shadows={false}
           camera={{ position: [0, 0, 11], fov: 40 }}
-          gl={{ 
+          gl={{
             preserveDrawingBuffer: true,
-            powerPreference: "low-power",
-            antialias: false 
+            powerPreference: "high-performance",
+            antialias: true
           }}
-          dpr={[1, 1.5]} // Limit pixel ratio for performance
+          dpr={[1, 2]}
         >
           <Suspense fallback={null}>
             <Scene />

@@ -56,12 +56,12 @@ export const Canvas3D: React.FC<CanvasProps> = ({
         frameloop={isInView ? "always" : "never"}
         shadows={false}
         camera={{ position: cameraPosition, fov: 25 }}
-        gl={{ 
-          preserveDrawingBuffer: true, 
-          powerPreference: "low-power",
-          antialias: false
+        gl={{
+          preserveDrawingBuffer: true,
+          powerPreference: "high-performance",
+          antialias: true
         }}
-        dpr={[1, 1.5]}
+        dpr={[1, 2]}
       >
 
         <ambientLight intensity={2} />

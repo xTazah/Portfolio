@@ -2,12 +2,8 @@ import { useState, useEffect } from "react";
 import { SunIcon, MoonIcon } from "@heroicons/react/24/solid";
 import { Button, Tooltip } from "@nextui-org/react";
 
-// TODO: Set to true when light mode is ready
-const LIGHT_MODE_ENABLED = false;
-
 export const ThemeSwitcher = () => {
   const [darkMode, setDarkMode] = useState(() => {
-    if (!LIGHT_MODE_ENABLED) return true; // Force dark mode when disabled
     const storedPreference = localStorage.getItem("darkMode");
     return storedPreference
       ? JSON.parse(storedPreference)
@@ -15,7 +11,6 @@ export const ThemeSwitcher = () => {
   });
 
   useEffect(() => {
-    if (!LIGHT_MODE_ENABLED) return; // Skip listener when disabled
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
     const handleChange = (event: MediaQueryListEvent) =>
       setDarkMode(event.matches);
@@ -26,14 +21,14 @@ export const ThemeSwitcher = () => {
 
   useEffect(() => {
     localStorage.setItem("darkMode", JSON.stringify(darkMode));
+    // Toggle both classes explicitly: the map's theme detection looks for a
+    // `light` OR `dark` class, and only toggling `dark` leaves it unset in light
+    // mode (falling back to system preference and getting stuck).
     document.documentElement.classList.toggle("dark", darkMode);
+    document.documentElement.classList.toggle("light", !darkMode);
   }, [darkMode]);
 
-  const toggleDarkMode = () => {
-    if (LIGHT_MODE_ENABLED) {
-      setDarkMode(!darkMode);
-    }
-  };
+  const toggleDarkMode = () => setDarkMode(!darkMode);
 
   return (
     <Tooltip
@@ -41,9 +36,7 @@ export const ThemeSwitcher = () => {
       placement="bottom-end"
       content={
         <div className="text-small">
-          {LIGHT_MODE_ENABLED
-            ? `Switch to ${!darkMode ? "Dark" : "Light"} Mode`
-            : "Light mode is not supported right now"}
+          {`Switch to ${!darkMode ? "Dark" : "Light"} Mode`}
         </div>
       }
     >
@@ -52,7 +45,6 @@ export const ThemeSwitcher = () => {
         onClick={toggleDarkMode}
         color="secondary"
         aria-label="Toggle theme"
-        className={!LIGHT_MODE_ENABLED ? "cursor-not-allowed opacity-70" : ""}
       >
         {darkMode ? (
           <SunIcon className="w-6 h-6" />

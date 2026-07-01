@@ -8,9 +8,9 @@ import { MailIcon } from "lucide-react";
 
 const PulsingMarker = () => (
   <div className="relative flex items-center justify-center">
-    <div className="absolute size-8 rounded-full bg-gradient-to-r from-purple-400 to-pink-400 pulsing-marker-ring" />
-    <div className="absolute size-8 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 pulsing-marker-ring-delayed" />
-    <div className="relative size-5 rounded-full bg-gradient-to-r from-purple-400 to-pink-400 border-2 border-white shadow-lg shadow-purple-500/50" />
+    <div className="absolute size-8 rounded-full bg-primary pulsing-marker-ring" />
+    <div className="absolute size-8 rounded-full bg-primary pulsing-marker-ring-delayed" />
+    <div className="relative size-5 rounded-full bg-primary border-2 border-white shadow-lg shadow-primary/50" />
   </div>
 );
 
@@ -33,14 +33,14 @@ export const AboutMe = () => {
       </span>
       
       <div className="max-w-7xl mx-auto">
-        <Card className="bg-gradient-to-br from-slate-900 via-purple-900/10 to-slate-900 border-purple-500/20 backdrop-blur-sm overflow-hidden">
+        <Card className="bg-card border-border backdrop-blur-sm overflow-hidden">
           <CardContent className="p-0">
             <div className="flex flex-col lg:flex-row">
               <div className="flex-1 p-6 sm:p-10 flex flex-col gap-5">
                 <div>
-                  <h1 className="text-4xl sm:text-6xl font-black text-white leading-tight">
+                  <h1 className="text-4xl sm:text-6xl font-black text-foreground leading-tight">
                     Hi, I'm{" "}
-                    <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                    <span className="text-primary">
                       Finn{" "}
                     </span>
                     <motion.span
@@ -54,11 +54,11 @@ export const AboutMe = () => {
                   </h1>
                 </div>
 
-                <Separator className="bg-purple-500/20" />
+                <Separator className="bg-border" />
 
                 {/* Location */}
                 <div className="flex items-center gap-3 text-muted-foreground">
-                  <MapPinIcon className="h-6 w-6 text-purple-400" />
+                  <MapPinIcon className="h-6 w-6 text-primary" />
                   <span className="text-lg">{locationName}</span>
                 </div>
 
@@ -78,10 +78,10 @@ export const AboutMe = () => {
                   })()}-year-old computer science bachelor's graduate with a strong foundation in industrial automation, data science, machine learning, and AI with a research interest in autonomous driving. Currently pursuing a graduate's degree at the University of Münster. Incoming visiting student at UC Berkeley.
                 </p>
                 
-                <Separator className="bg-purple-500/20" />
+                <Separator className="bg-border" />
 
                 <div className="flex items-center gap-3 text-muted-foreground">
-                  <MailIcon className="h-6 w-6 text-purple-400" />
+                  <MailIcon className="h-6 w-6 text-primary" />
                   <a href="mailto:finn.koehler@berkeley.edu" className="text-lg hover:underline">finn.koehler@berkeley.edu</a>
                 </div>
 
@@ -90,14 +90,13 @@ export const AboutMe = () => {
               {/* Right side - Map widget */}
               <div className="relative w-full lg:w-80 h-48 lg:h-auto lg:min-h-[280px]">
                 {/* gradient blending */}
-                <div className="absolute opacity-75 inset-0 z-10 pointer-events-none bg-gradient-to-r from-slate-900 via-slate-900/60 to-transparent lg:block hidden" />
-                <div className="absolute opacity-50 inset-0 z-10 pointer-events-none bg-gradient-to-t from-slate-900/80 via-transparent to-slate-900/60 lg:hidden" />
-                <div className="absolute opacity-50 inset-0 z-10 pointer-events-none bg-gradient-to-b from-slate-900/40 via-transparent to-slate-900/60" />
+                <div className="absolute opacity-40 inset-0 z-10 pointer-events-none bg-gradient-to-r from-card via-card/30 to-transparent lg:block hidden" />
+                <div className="absolute opacity-30 inset-0 z-10 pointer-events-none bg-gradient-to-t from-card/70 via-transparent to-transparent lg:hidden" />
+                <div className="absolute opacity-30 inset-0 z-10 pointer-events-none bg-gradient-to-b from-transparent via-transparent to-card/50" />
                 
                 <Map
                   center={[coords.lng, coords.lat - 0.001]}
                   zoom={12}
-                  theme="dark"
                   interactive={false}
                   attributionControl={false}
                   scrollZoom={false}
@@ -110,7 +109,7 @@ export const AboutMe = () => {
                     longitude={coords.lng}
                     latitude={coords.lat - 0.001}
                   >
-                    <MarkerContent>
+                    <MarkerContent className="cursor-default">
                       <PulsingMarker />
                     </MarkerContent>
                   </MapMarker>

@@ -11,7 +11,7 @@ const CanvasLoader = () => {
             classNames={{
                 base: "max-w-md",
                 track: "drop-shadow-md border border-default",
-                indicator: "bg-gradient-to-r from-pink-500 to-purple-500",
+                indicator: "bg-primary",
                 label: "tracking-wider font-medium text-default-600",
                 value: "text-foreground/60",
                 }}

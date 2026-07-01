@@ -14,12 +14,13 @@ const WorkCard = ({ experience }) => {
   return (
     <VerticalTimelineElement
       contentStyle={{
-        background: "#1d1836",
-        color: "#fff",
+        background: "hsl(var(--card))",
+        color: "hsl(var(--card-foreground))",
         borderRadius: "1rem",
-        boxShadow: "0 10px 30px -15px rgba(147, 51, 234, 0.3)",
+        border: "1px solid hsl(var(--border))",
+        boxShadow: "0 10px 30px -15px hsl(var(--primary) / 0.3)",
       }}
-      contentArrowStyle={{ borderRight: "7px solid #1d1836" }}
+      contentArrowStyle={{}}
       date={experience.date}
       iconStyle={{ background: experience.iconBg }}
       icon={
@@ -33,9 +34,9 @@ const WorkCard = ({ experience }) => {
       }
     >
       <div>
-        <h3 className="text-white text-[24px] font-bold">{experience.title}</h3>
+        <h3 className="text-foreground text-[24px] font-bold">{experience.title}</h3>
         <p
-          className="text-purple-300 !text-[18px] font-semibold"
+          className="text-primary !text-[18px] font-semibold"
           style={{ margin: 0 }}
         >
           {experience.company_name}
@@ -46,7 +47,7 @@ const WorkCard = ({ experience }) => {
         {experience.points.map((point, index) => (
           <li
             key={`experience-point-${index}`}
-            className="text-white-100 text-[14px] pl-1 tracking-wider"
+            className="text-card-foreground text-[14px] pl-1 tracking-wider"
           >
             {point}
           </li>
@@ -65,7 +66,7 @@ export const Work = () => {
       
       <div className="max-w-7xl mx-auto">
         <motion.div variants={textEntry(0)}>
-          <p className="sm:text-lg text-sm text-purple-400 uppercase tracking-wider text-center font-semibold">
+          <p className="sm:text-lg text-sm text-primary uppercase tracking-wider text-center font-semibold">
             What I have done so far
           </p>
           <h2 className="text-gray-900 dark:text-white font-black md:text-6xl sm:text-5xl text-4xl text-center mt-2">
@@ -82,7 +83,7 @@ export const Work = () => {
           <a href="/CV_Koehler_Finn.pdf" download="CV_Koehler_Finn.pdf">
             <Button
               size="lg"
-              className="mt-10 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold shadow-lg hover:shadow-xl transition-all"
+              className="mt-10 bg-primary hover:bg-primary/90 text-white font-semibold shadow-lg hover:shadow-xl transition-all"
             >
               <ArrowDownTrayIcon className="w-5 h-5 mr-2" />
               Download CV

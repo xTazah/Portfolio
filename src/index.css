@@ -82,6 +82,14 @@
   body {
     @apply bg-background text-foreground;
   }
+  /* The timeline entrance animation slides cards in from translateX(±100px),
+     briefly extending past the viewport edge. On mobile that transient
+     horizontal overflow makes the browser rescale the page (content shrinks
+     then snaps back, fixed navbar reflows). Clip it at the root. */
+  html,
+  body {
+    overflow-x: hidden;
+  }
 }
 
 @layer base {

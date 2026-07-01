@@ -104,6 +104,10 @@ const projects = [
         name: "waymo",
         color: "pink-text-gradient",
       },
+      {
+        name: "autonomous driving",
+        color: "pink-text-gradient",
+      },
     ],
     image: gaussianThesisPreview,
     source_code_link: null,
@@ -116,15 +120,27 @@ const projects = [
       "Locally-run LaTeX editor with live PDF preview, designed to work alongside VS Code so AI assistants can edit .tex files on disk while you write. Forked from open-prism; I stripped out the AI/IndexedDB/cloud layer and added a real filesystem backend with Chokidar watching and debounced disk writes, full Git integration (branch indicators, staging, commits, push/pull), a recursive file tree sidebar, and table-of-contents parsing with scroll sync.",
     tags: [
       {
-        name: "react",
+        name: "next.js",
         color: "blue-text-gradient",
       },
       {
         name: "typescript",
-        color: "green-text-gradient",
+        color: "blue-text-gradient",
       },
       {
         name: "codemirror",
+        color: "green-text-gradient",
+      },
+      {
+        name: "zustand",
+        color: "green-text-gradient",
+      },
+      {
+        name: "hono",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "chokidar",
         color: "pink-text-gradient",
       },
     ],
@@ -218,6 +234,10 @@ const projects = [
       {
         name: "react",
         color: "blue-text-gradient",
+      },
+      {
+        name: "framer-motion",
+        color: "green-text-gradient",
       },
       {
         name: "tailwind",

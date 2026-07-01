@@ -151,9 +151,9 @@ export const Projects = () => {
             variants={textEntry(0.1)}
             className="mt-6 text-muted-foreground text-base sm:text-lg max-w-3xl leading-relaxed text-center mx-auto"
           >
-            The following selected projects showcase my skills and experience through
-            real-world examples of my private work. Each project is briefly described with
-            links to code repositories and live demos.
+            The following selected projects and research showcase my skills and experience
+            through real-world examples of my private work. Each is briefly described with
+            links to papers, code repositories, and live demos where available.
           </motion.p>
         </div>
 

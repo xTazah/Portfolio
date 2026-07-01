@@ -46,7 +46,7 @@ export const InterestsSection = () => {
             <div className={`relative z-10 w-full max-w-7xl mx-auto px-8 pointer-events-none md:h-full md:flex md:items-center`}>
                 <div className="w-full md:w-1/2 pointer-events-auto mt-4 md:mt-0">
                     <p className="text-lg font-medium text-gray-700 dark:text-gray-300 text-center sm:text-left bg-white/70 dark:bg-gray-900/80 backdrop-blur-md p-6 rounded-xl shadow-lg">
-                    I constantly explore new tools and technologies to enhance my development workflow.
+                    I'm always chasing the next tool that makes me build faster and better — from AI copilots to whatever framework dropped last week. If it sharpens my workflow, I'll dive in.
                     </p>
                 </div>
             </div>
@@ -66,13 +66,13 @@ export const InterestsSection = () => {
             <div className="relative z-10 w-full max-w-7xl mx-auto px-8 pointer-events-none md:h-full md:flex md:items-center">
                 <div className="w-full md:w-1/2 pointer-events-auto md:ml-auto mt-4 md:mt-0">
                     <p className="text-lg font-medium text-gray-700 dark:text-gray-300 text-center sm:text-left bg-white/70 dark:bg-gray-900/80 backdrop-blur-md p-6 rounded-xl shadow-lg">
-                    I love playing piano. It's a wonderful way to express creativity and relax after a long day.
+                    When the code stops, the piano starts. It's where I switch off the analytical side of my brain and just play what I feel like.
                     </p>
                 </div>
             </div>
         </div>
 
-        {/* Fitness Section */}
+        {/* Sports Section */}
         <div className="relative w-full md:h-[500px] flex flex-col md:block items-center pb-16 md:pb-0">
             <div className="relative w-full h-[300px] md:absolute md:inset-0 md:w-full md:h-full">
                 <Canvas3D
@@ -86,7 +86,7 @@ export const InterestsSection = () => {
             <div className="relative z-10 w-full max-w-7xl mx-auto px-8 pointer-events-none md:h-full md:flex md:items-center">
                 <div className="w-full md:w-1/2 pointer-events-auto mt-4 md:mt-0">
                     <p className="text-lg font-medium text-gray-700 dark:text-gray-300 text-center sm:text-left bg-white/70 dark:bg-gray-900/80 backdrop-blur-md p-6 rounded-xl shadow-lg">
-                    Fitness is essential for me to stay balanced and energized.
+                    I like playing handball, volleyball, and hitting the gym to get my mind free after a long day.
                     </p>
                 </div>
             </div>

@@ -8,12 +8,9 @@ const workExperience = [
     iconBg: "#003262",
     date: "August 2026 - December 2026",
     points: [
-      "Self-funded semester abroad - course enrollment subject to availability",
-      "MECENG 236C (Vehicle Dynamics & Control) - automotive dynamics, active safety systems (ABS, traction control, stability control), and autonomous vehicle technology",
-      "COMPSCI 287 (Advanced Robotics) - planning, control, and estimation under uncertainty for real robot systems",
-      "COMPSCI 287H (Algorithmic Human-Robot Interaction) - algorithms and AI for effective human-robot collaboration",
-      "COMPSCI C249A (Intro to Embedded Systems) - models, analysis, and control for real-time embedded systems interfacing with the physical world",
-      "MECENG 236U (Dynamics and Control of Autonomous Flight) - UAV dynamics, control strategies, and hands-on quadcopter programming",
+      "Visiting graduate student; coursework subject to availability",
+      "Coursework spanning Vehicle Dynamics & Control, Advanced Robotics, Algorithmic Human-Robot Interaction, Embedded Systems, and Dynamics & Control of Autonomous Flight",
+      "Focus areas: robotics, autonomous vehicles, and real-time control systems",
     ],
   },
   {
@@ -24,6 +21,7 @@ const workExperience = [
     date: "October 2025 - September 2027",
     points: [
       "Master's in Information Systems with a focus on Data Science",
+      "Current GPA: 1,5 (US equivalent ~3.7)",
       "All courses taught in English",
       "Specializing in machine learning and data science research",
     ],
@@ -35,8 +33,10 @@ const workExperience = [
     iconBg: "white",
     date: "October 2025 - Present",
     points: [
-      "Contributing to ongoing software development projects alongside Master's studies",
-      "Continuing work on TwinCAT ecosystem and automation solutions",
+      "Building TwinCAT CoAgent MCP servers that let engineering tools automate and communicate across the measurement suite",
+      "Engineering the TwinCAT Global Watchlist, a real-time monitoring interface tracking hundreds of PLC variables synchronized at cycle time (down to 1 ms)",
+      "Implemented snapshot capture/restore, bidirectional write-back to live PLC runtimes, and multi-format value rendering (hex, octal, binary, decimal)",
+      "Built a Visual Studio service for PLC self-registration, letting users add any variable to the watchlist via a single right-click",
     ],
   },
   {
@@ -46,9 +46,9 @@ const workExperience = [
     iconBg: "white",
     date: "February 2024 - September 2025",
     points: [
-      "Development of WatchLists for PLC applications and other automation products",
-      "Implementation of Agents and integration into TwinCAT CoAgent",
-      "Full-time software engineering role focusing on industrial automation solutions",
+      "Built a generic, high-performance filtering framework in C# with a custom query language for tree views of hundreds of thousands of items (full PLC variable lists with deeply nested arrays and structs)",
+      "Leveraged reflection, interop, and attribute-driven design for plug-and-play extensibility, with aggressive caching and constraint-based evaluation for millisecond-latency UI filtering",
+      "Initiated development of the TwinCAT Global Watchlist for real-time PLC diagnostics and visualization",
     ],
   },
   {
@@ -58,9 +58,9 @@ const workExperience = [
     iconBg: "white",
     date: "August 2020 - February 2024",
     points: [
-      "Software development in an industrial context using .NET, TypeScript, and C++",
-      "Development of driver components for automation systems",
-      "Programming web-based dashboards for data analysis and visualization",
+      "Architected a synchronization framework unifying legacy visualization concepts with modern TwinCAT Analytics dashboards (bachelor thesis, grade 1,3)",
+      "Developed Windows kernel-mode drivers in C++ and industrial IPC diagnostics pipelines (CPU temperature, disk usage, system health) via the Beckhoff MDP library and asynchronous TwinCAT ADS communication",
+      "Designed automated User Management configuration generation for secure server-side data access in TwinCAT HMI",
     ],
   },
   {

@@ -11,5 +11,6 @@ import dartzPreview from "./Dartz-Preview.gif";
 import portfolioPreview from "./Portfolio-Preview.gif";
 import wwUtilityPreview from "./wwUtility-Preview.gif";
 import openLatexPreview from "./OpenLatex.png";
+import gaussianThesisPreview from "./PartBasedRigidDecomposition-Preview.png";
 
-export { beckhoff, hsbi, uniMuenster, berkeleyLogo, github, afterEffects, cSharp, tensorflow, githubPng, dartzPreview, portfolioPreview, wwUtilityPreview, openLatexPreview };
+export { beckhoff, hsbi, uniMuenster, berkeleyLogo, github, afterEffects, cSharp, tensorflow, githubPng, dartzPreview, portfolioPreview, wwUtilityPreview, openLatexPreview, gaussianThesisPreview };

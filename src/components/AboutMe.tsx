@@ -75,7 +75,7 @@ export const AboutMe = () => {
                       age--;
                     }
                     return age;
-                  })()}-year-old computer science bachelor's graduate with a strong foundation in industrial automation, data science, machine learning, and AI with a research interest in autonomous driving. Currently pursuing a graduate's degree at the University of Münster. Incoming visiting student at UC Berkeley.
+                  })()}-year-old computer science bachelor's graduate with a strong foundation in industrial automation, data science, machine learning, and AI with a research interest in autonomous driving. Currently pursuing a graduate's degree at the University of Münster, visiting UC Berkeley, where I research feedforward 3D scene reconstruction for autonomous driving with Berkeley DeepDrive.
                 </p>
                 
                 <Separator className="bg-border" />

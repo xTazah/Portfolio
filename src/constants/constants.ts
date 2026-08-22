@@ -1,6 +1,16 @@
-import { beckhoff, hsbi, uniMuenster, berkeleyLogo, dartzPreview, wwUtilityPreview, openLatexPreview, gaussianThesisPreview } from "../assets/assets";
+import { beckhoff, hsbi, uniMuenster, berkeleyLogo, berkeleyDeepDriveLogo, dartzPreview, wwUtilityPreview, openLatexPreview, gaussianThesisPreview } from "../assets/assets";
 
 const workExperience = [
+  {
+    title: "Application Engineering Intern (Incoming)",
+    company_name: "Beckhoff Automation USA",
+    icon: beckhoff,
+    iconBg: "white",
+    date: "January 2027 - May 2027",
+    points: [
+      "Upcoming software/application engineering internship at Beckhoff Automation's Silicon Valley, USA office",
+    ],
+  },
   {
     title: "Graduate Student - Computer Science",
     company_name: "University of California, Berkeley",
@@ -11,6 +21,18 @@ const workExperience = [
       "Visiting graduate student; coursework subject to availability",
       "Coursework spanning Vehicle Dynamics & Control, Advanced Robotics, Algorithmic Human-Robot Interaction, Embedded Systems, and Dynamics & Control of Autonomous Flight",
       "Focus areas: robotics, autonomous vehicles, and real-time control systems",
+    ],
+  },
+  {
+    title: "Student Researcher",
+    company_name: "Berkeley DeepDrive",
+    icon: berkeleyDeepDriveLogo,
+    iconBg: "white",
+    date: "July 2026 - Present",
+    points: [
+      "Researching feedforward 3D scene reconstruction for autonomous driving alongside Chensheng Peng",
+      "Project run in collaboration with Mercedes-Benz Research & Development North America, Inc.",
+      "Kicked off the project remotely before relocating to Berkeley to continue the research in person",
     ],
   },
   {
@@ -27,11 +49,11 @@ const workExperience = [
     ],
   },
   {
-    title: "Working Student - Software Engineering",
+    title: "Software Engineer - Working Student",
     company_name: "Beckhoff Automation",
     icon: beckhoff,
     iconBg: "white",
-    date: "October 2025 - Present",
+    date: "October 2025 - August 2026",
     points: [
       "Building TwinCAT CoAgent MCP servers that let engineering tools automate and communicate across the measurement suite",
       "Engineering the TwinCAT Global Watchlist, a real-time monitoring interface tracking hundreds of PLC variables synchronized at cycle time (down to 1 ms)",
@@ -52,7 +74,7 @@ const workExperience = [
     ],
   },
   {
-    title: "Dual Student - Software Engineering",
+    title: "Software Engineer - Dual Student",
     company_name: "Beckhoff Automation",
     icon: beckhoff,
     iconBg: "white",

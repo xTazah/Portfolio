@@ -11,5 +11,6 @@ import dartzPreview from "./Dartz-Preview.gif";
 import wwUtilityPreview from "./wwUtility-Preview.gif";
 import openLatexPreview from "./OpenLatex.png";
 import gaussianThesisPreview from "./PartBasedRigidDecomposition-Preview.png";
+import berkeleyDeepDriveLogo from "./berkeley-deepdrive-icon.png";
 
-export { beckhoff, hsbi, uniMuenster, berkeleyLogo, github, afterEffects, cSharp, tensorflow, githubPng, dartzPreview, wwUtilityPreview, openLatexPreview, gaussianThesisPreview };
+export { beckhoff, hsbi, uniMuenster, berkeleyLogo, berkeleyDeepDriveLogo, github, afterEffects, cSharp, tensorflow, githubPng, dartzPreview, wwUtilityPreview, openLatexPreview, gaussianThesisPreview };
